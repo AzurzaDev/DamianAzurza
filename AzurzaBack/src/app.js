@@ -1,9 +1,10 @@
 const express = require('express');
 const session = require('express-session');
-const morgan = require('morgan');
-//const routes = require('./routes');
-const cors = require('cors');
 const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const routes = require('./routes');
+const cors = require('cors');
+
 
 //const { passport, initialize } = require('./passport');
 const { JWT_SECRET_KEY } = require('./config/envs');
@@ -24,7 +25,7 @@ app.use(
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
-//app.use('/', routes);
+app.use('/', routes);
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); 
   res.header('Access-Control-Allow-Credentials', 'true');
