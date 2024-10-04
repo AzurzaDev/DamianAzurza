@@ -3,14 +3,14 @@ const {Show} = require('../data')
 const createShow = async (req, res) => {
     try {
       console.log('Request Body:', req.body); // Verifica el cuerpo de la petición
-      const { title, direccion, city, description, fecha, images } = req.body;
+      const { title, direccion, city, description, date, images } = req.body;
       
       const newShow = await Show.create({
         title,
         direccion,
         city,
         description,
-        fecha,
+        date,
         images,
       });
       
@@ -51,7 +51,7 @@ const createShow = async (req, res) => {
       const updateShow = async (req, res) => {
         try {
           const { id } = req.params;
-          const { title, direccion, city, description, fecha, images } = req.body;
+          const { title, direccion, city, description, date, images } = req.body;
       
           const show = await Show.findByPk(id);
           if (!show) {
@@ -63,7 +63,7 @@ const createShow = async (req, res) => {
             direccion,
             city,
             description,
-            fecha,
+            date,
             images,
           });
       

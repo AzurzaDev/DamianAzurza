@@ -22,6 +22,10 @@ module.exports = (sequelize) => {
     allowNull: false
   
       },
+      role: {
+        type:DataTypes.STRING,
+        defaultValue: "admin",
+      },
 
       
       deletedAt: {

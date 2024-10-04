@@ -1,14 +1,13 @@
-// store.js
-import { createStore, applyMiddleware, compose } from 'redux';
-import { thunk } from 'redux-thunk';
-import rootReducer from '../Reducer/reducer';
 
-// Combina applyMiddleware y la configuración de Redux DevTools en una sola función usando compose
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+// Importa configureStore de Redux Toolkit en lugar de createStore y applyMiddleware
+import { configureStore } from '@reduxjs/toolkit';
+import rootReducer from '../Reducer/reducer'; // Mantienes el rootReducer
 
-// Crea la tienda de Redux sin Redux Persist
-export const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(thunk))
-);
+
+// Crea la tienda con configureStore (no necesitas thunk, ya está incluido)
+export const store = configureStore({
+  reducer: rootReducer,
+  devTools: import.meta.env !== 'production', // Habilita Redux DevTools solo en desarrollo
+});
+
 
