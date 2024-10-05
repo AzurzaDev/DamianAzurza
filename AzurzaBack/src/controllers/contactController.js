@@ -5,13 +5,13 @@ exports.createContact = async (req, res) => {
   const { name, email, phone, isSuscripto } = req.body;
 
   try {
-    // Verificar si el correo ya existe
+    
     const existingContact = await Contacto.findOne({ where: { email } });
     if (existingContact) {
       return res.status(400).json({ message: 'El correo electrónico ya está registrado' });
     }
 
-    // Crear un nuevo contacto
+    
     const newContact = await Contacto.create({ name, email, phone, isSuscripto });
     res.status(201).json({ message: 'Contacto registrado con éxito', contact: newContact });
   } catch (error) {

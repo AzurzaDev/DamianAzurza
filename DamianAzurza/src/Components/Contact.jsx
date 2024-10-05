@@ -6,7 +6,7 @@ const Contact = () => {
       <div className="flex flex-col md:flex-row items-center justify-between bg-white p-8">
         {/* Izquierda - Texto con imagen de fondo */}
         <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 bg-cover bg-center bg-no-repeat" 
-          style={{ backgroundImage: {paraContacto} }} // Cambia 'tu-imagen.png' por la imagen deseada
+          style={{ backgroundImage: `url(${paraContacto})` }} 
         >
           <div className="bg-white/70 p-8"> {/* Capa semitransparente para que el texto sea más legible */}
             <h2 className="text-3xl font-bold mb-4">Contacto</h2>
