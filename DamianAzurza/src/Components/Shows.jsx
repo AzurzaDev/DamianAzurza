@@ -43,7 +43,7 @@ const Shows = () => {
         <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-8">
           {currentShows.map((show) => {
             const showDate = new Date(show.date);
-            const options = { weekday: "long" }; // Configura las opciones para el día de la semana
+            const options = { weekday: "long" }; 
             const dayOfWeek = showDate.toLocaleDateString("es-ES", options); // Obtiene el día de la semana en texto
 
             return (
