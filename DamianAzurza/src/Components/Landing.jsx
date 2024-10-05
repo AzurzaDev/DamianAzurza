@@ -12,7 +12,7 @@ const Landing = () => {
     <div className="landing-container">
        <Navbar/>
        <EscuchaMiMusica/>
-       <ImagenDebajoCarrousel/>
+       
        <Shows/>
        <Projects/>
        <Services/>

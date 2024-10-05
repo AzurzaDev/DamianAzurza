@@ -63,12 +63,12 @@ const EscuchaMiMusica = () => {
   }, []);
 
   return (
-    <div ref={carouselRef} className="relative w-full h-[230px] sm:h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden flex justify-center items-center">
+    <div ref={carouselRef} className="w-full h-screen overflow-hidden flex justify-center items-center">
       <div className="w-full h-full">
         <img
           src={images[currentIndex]}
           alt={`Slide ${currentIndex}`}
-          className="w-full h-full object-cover"
+          className="w-full h-full"
         />
       </div>
 

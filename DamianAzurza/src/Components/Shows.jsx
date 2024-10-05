@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FaRegCalendarCheck } from "react-icons/fa"; // Importa el icono de calendario
 import { getAllShows } from "../redux/Actions/actions";
 import Pagination from "../utils/Pagination";
+import ImagenDebajoCarrousel from "../Components/ImagenDebajoCarrousel"
 
 const Shows = () => {
   const dispatch = useDispatch();
@@ -35,7 +36,13 @@ const Shows = () => {
   };
 
   return (
+    <div>
+    <ImagenDebajoCarrousel/>
+    
     <div className="max-w-6xl mx-auto my-8">
+
+    
+
       <h2 className="text-3xl font-semibold text-center mb-4">
         Próximos Shows{" "}
       </h2>
@@ -66,7 +73,7 @@ const Shows = () => {
           })}
         </div>
       ) : (
-        <p className="text-center">No hay shows disponibles.</p>
+        <p className="text-center">No hay shows disponibles</p>
       )}
       <Pagination
         currentPage={currentPage}
@@ -74,6 +81,7 @@ const Shows = () => {
         onPageChange={handlePageChange}
         itemsPerPage={itemsPerPage}
       />
+    </div>
     </div>
   );
 };
