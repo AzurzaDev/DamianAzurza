@@ -20,7 +20,7 @@ export const theme = {
       footer: "#49465a"
     },
     fontFamily: {
-        nunito: ['Nunito', 'sans-serif'], // Definir la fuente Nunito
+        Montserrat: ['Montserrat', 'sans-serif'], // Definir la fuente Nunito
       },
   },
 };

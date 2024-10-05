@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { FaRegCalendarCheck } from "react-icons/fa"; // Importa el icono de calendario
-import { getAllShows } from '../redux/Actions/actions';
-import Pagination from '../utils/Pagination';
+import { getAllShows } from "../redux/Actions/actions";
+import Pagination from "../utils/Pagination";
 
 const Shows = () => {
   const dispatch = useDispatch();
@@ -36,29 +36,32 @@ const Shows = () => {
 
   return (
     <div className="max-w-6xl mx-auto my-8">
-      <h2 className="text-2xl font-semibold text-center mb-4">Próximos Shows </h2>
+      <h2 className="text-3xl font-semibold text-center mb-4">
+        Próximos Shows{" "}
+      </h2>
       {currentShows.length > 0 ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 gap-8">
           {currentShows.map((show) => {
             const showDate = new Date(show.date);
-            const options = { weekday: 'long' }; // Configura las opciones para el día de la semana
-            const dayOfWeek = showDate.toLocaleDateString('es-ES', options); // Obtiene el día de la semana en texto
+            const options = { weekday: "long" }; // Configura las opciones para el día de la semana
+            const dayOfWeek = showDate.toLocaleDateString("es-ES", options); // Obtiene el día de la semana en texto
 
             return (
-              <div key={show.idShow} className="bg-white rounded-lg shadow-lg p-4">
-                <img 
-                  src={show.images[0]} 
-                  alt={show.title} 
-                  className="w-full h-32 object-cover rounded-md mb-2"
-                />
-                <h3 className="font-bold text-lg">{show.title}</h3>
-                <p className="text-gray-600">Dirección: {show.direccion}</p>
-                <p className="text-gray-600">Ciudad: {show.city}</p>
-                <p className="text-gray-600 flex items-center">
-                  <FaRegCalendarCheck className="mr-2" /> {/* Ícono de calendario */}
-                  Fecha: {dayOfWeek} {showDate.getDate()}/{showDate.getMonth() + 1} {/* Formato: Día/Mes */}
-                </p>
-              </div>
+                <div key={show.idShow} className="bg-white rounded-lg shadow-lg p-4">
+  <img 
+    src={show.images[0]} 
+    alt={show.title} 
+    className="w-74 h-74 object-cover   rounded-lg mb-2" // Establece el tamaño cuadrado y los bordes redondeados
+  />
+  <h3 className="font-bold text-lg">{show.title}</h3>
+  <p className="text-gray-600">Dirección: {show.direccion}</p>
+  <p className="text-gray-600">Ciudad: {show.city}</p>
+  <p className="text-gray-600 flex items-center">
+    <FaRegCalendarCheck className="mr-2" />
+    Fecha: {dayOfWeek} {showDate.getDate()}/{showDate.getMonth() + 1}
+  </p>
+</div>
+
             );
           })}
         </div>
@@ -76,9 +79,3 @@ const Shows = () => {
 };
 
 export default Shows;
-
-
-
-
-
-
