@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import image1 from '../assets/escuchaMiMusica.png';
-import image2 from '../assets/escuchamimusica2.png';
-import image3 from '../assets/escuchamimusica3.png';
+import image2 from '../assets/escuchaMiMusica2.png';
+import image3 from '../assets/escuchaMiMusica3.png';
 
 const images = [image1, image2, image3];
 

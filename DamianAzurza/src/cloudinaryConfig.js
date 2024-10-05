@@ -15,7 +15,7 @@ export const openCloudinaryWidget = (callback) => {
     },
     (error, result) => {
       if (result.event === 'success') {
-        callback(result.info.secure_url);  // Retorna la URL segura
+        callback(result.info.secure_url);  
       }
     }
   );

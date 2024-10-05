@@ -3,12 +3,14 @@ import { AiFillPlayCircle } from "react-icons/ai";
 import { PiUserSoundFill } from "react-icons/pi";
 import { FaPauseCircle } from "react-icons/fa";
 
+import paraProyectos from '../assets/paraProyectos.png'
+
 const Projects = () => {
   return (
     <div className="relative w-full h-[200px] md:h-[400px] lg:h-[1200px]">
       
       <img
-        src="src/assets/paraProyectos.png"
+        src={paraProyectos}
         alt="Imagen Fija"
         className="w-full h-full object-cover"
       />

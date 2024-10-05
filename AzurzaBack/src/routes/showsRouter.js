@@ -5,7 +5,7 @@ const { createShow, getAllShows, getShowById, updateShow, deleteShow } = require
 
 router.post('/', createShow);
 
-// Ruta para obtener todos los shows
+
 router.get('/', getAllShows);
 
 // Ruta para obtener un show por ID
