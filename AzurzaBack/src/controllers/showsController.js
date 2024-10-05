@@ -2,7 +2,7 @@ const {Show} = require('../data')
 
 const createShow = async (req, res) => {
     try {
-      console.log('Request Body:', req.body); // Verifica el cuerpo de la petición
+      console.log('Request Body:', req.body); 
       const { title, direccion, city, description, date, images } = req.body;
       
       const newShow = await Show.create({
@@ -14,11 +14,11 @@ const createShow = async (req, res) => {
         images,
       });
       
-      console.log('Nuevo Show Creado:', newShow); // Verifica el show creado
+      console.log('Nuevo Show Creado:', newShow); 
   
       res.status(201).json(newShow);
     } catch (error) {
-      console.error('Error en createShow:', error); // Captura y muestra el error en la consola
+      console.error('Error en createShow:', error); 
       res.status(500).json({ error: 'Error al crear el show.' });
     }
   };

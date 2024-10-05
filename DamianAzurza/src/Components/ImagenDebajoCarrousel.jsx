@@ -1,4 +1,4 @@
-import debajoSlider from '../assets/debajoSlider'
+import debajoSlider from '../assets/debajoSlider.png'
 
 const FixedImage = () => {
     return (
