@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createShow, getAllShows, updateShow } from '../../redux/Actions/actions'; 
+import { createShow, getAllShows, updateShow, deleteShow } from '../../redux/Actions/actions'; 
 import Navbar from '../Navbar';
 import { openCloudinaryWidget } from '../../cloudinaryConfig'; 
 
@@ -42,6 +42,7 @@ const AgendaShows = () => {
     } else {
       // Si no se está editando, despacha la acción de creación
       dispatch(createShow(showData)); 
+      console.log(showData)
     }
 
     // Limpiar los campos después de crear o editar el show
@@ -59,7 +60,13 @@ const AgendaShows = () => {
     setDate(show.date);
     setCity(show.city);
     setImages(show.images || []); 
-    setEditingShowId(show.id); 
+    setEditingShowId(show.idShow); 
+  };
+
+  const handleDeleteShow = (show) => {
+    if (window.confirm('¿Estás seguro de que quieres eliminar este show?')) {
+      dispatch(deleteShow(show));
+    }
   };
 
   return (
@@ -129,7 +136,7 @@ const AgendaShows = () => {
         <h2 className="text-xl font-semibold mb-4 text-center">Shows Creados</h2>
         <ul className="space-y-4">
           {shows.map((show) => (
-            <li key={show.id} className="bg-white p-4 rounded shadow">
+            <li key={show.idShow} className="bg-white p-4 rounded shadow">
               <h3 className="font-bold">{show.title}</h3>
               <p>Dirección: {show.direccion}</p>
               <p>Ciudad: {show.city}</p>
@@ -137,9 +144,15 @@ const AgendaShows = () => {
               {/* Botón de edición */}
               <button 
                 onClick={() => handleEditShow(show)} 
-                className="mt-2 bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 transition"
+                className="mt-2 bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 transition mx-2"
               >
                 Editar
+              </button>
+              <button 
+                onClick={() => handleDeleteShow(show.idShow)} 
+                className="mt-2 bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 transition"
+              >
+                Eliminar
               </button>
             </li>
           ))}

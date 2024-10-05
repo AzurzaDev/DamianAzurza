@@ -121,9 +121,9 @@ export const getAllShows = () => async (dispatch) => {
 };
 
 // Obtener un show por ID
-export const getShowById = (id) => async (dispatch) => {
+export const getShowById = (idShow) => async (dispatch) => {
     try {
-        const response = await axios.get(`/shows/${id}`);
+        const response = await axios.get(`/shows/${idShow}`);
         dispatch({
             type: GET_SHOW_SUCCESS,
             payload: response.data
@@ -136,11 +136,11 @@ export const getShowById = (id) => async (dispatch) => {
     }
 };
 
-export const updateShow = (id, updatedShowData) => async (dispatch) => {
+export const updateShow = (idShow, updatedShowData) => async (dispatch) => {
     dispatch({ type: UPDATE_SHOW_REQUEST });
   
     try {
-      const response = await axios.put(`/api/shows/${id}`, updatedShowData);
+      const response = await axios.put(`/shows/${idShow}`, updatedShowData);
       dispatch({ type: UPDATE_SHOW_SUCCESS, payload: response.data });
     } catch (error) {
       dispatch({
@@ -151,12 +151,12 @@ export const updateShow = (id, updatedShowData) => async (dispatch) => {
   };
   
   // Action para eliminar un show
-  export const deleteShow = (id) => async (dispatch) => {
+  export const deleteShow = (idShow) => async (dispatch) => {
     dispatch({ type: DELETE_SHOW_REQUEST });
   
     try {
-      await axios.delete(`/api/shows/${id}`);
-      dispatch({ type: DELETE_SHOW_SUCCESS, payload: id });  // Podrías usar solo el ID para removerlo en el frontend
+      await axios.delete(`/shows/${idShow}`);
+      dispatch({ type: DELETE_SHOW_SUCCESS, payload: idShow });  // Podrías usar solo el ID para removerlo en el frontend
     } catch (error) {
       dispatch({
         type: DELETE_SHOW_FAILURE,

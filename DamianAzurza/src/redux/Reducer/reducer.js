@@ -104,7 +104,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         shows: state.shows.map((show) =>
-          show.id === action.payload.id ? action.payload : show
+          show.idShow === action.payload.idShow ? action.payload : show
         ),
       };
 
@@ -120,7 +120,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        shows: state.shows.filter((show) => show.id !== action.payload),
+        shows: state.shows.filter((show) => show.idShow !== action.payload),
       };
 
     default:

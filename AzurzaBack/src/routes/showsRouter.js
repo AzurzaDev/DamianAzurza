@@ -9,13 +9,13 @@ router.post('/', createShow);
 router.get('/', getAllShows);
 
 // Ruta para obtener un show por ID
-router.get('/:id', getShowById);
+router.get('/:idShow', getShowById);
 
 // Ruta para actualizar un show por ID
-router.put('/:id', updateShow);
+router.put('/:idShow', updateShow);
 
 // Ruta para eliminar un show por ID (soft delete)
-router.delete('/:id', deleteShow);
+router.delete('/:idShow', deleteShow);
 
 module.exports = router;
 //probando

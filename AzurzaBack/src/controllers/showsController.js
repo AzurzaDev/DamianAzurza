@@ -36,8 +36,8 @@ const createShow = async (req, res) => {
       // Obtener un show por ID
       const getShowById = async (req, res) => {
         try {
-          const { id } = req.params;
-          const show = await Show.findByPk(id);
+          const { idShow } = req.params;
+          const show = await Show.findByPk(idShow);
           if (!show) {
             return res.status(404).json({ error: 'Show no encontrado.' });
           }
@@ -50,10 +50,10 @@ const createShow = async (req, res) => {
       // Actualizar un show por ID
       const updateShow = async (req, res) => {
         try {
-          const { id } = req.params;
+          const { idShow } = req.params;
           const { title, direccion, city, description, date, images } = req.body;
       
-          const show = await Show.findByPk(id);
+          const show = await Show.findByPk(idShow);
           if (!show) {
             return res.status(404).json({ error: 'Show no encontrado.' });
           }
@@ -76,8 +76,8 @@ const createShow = async (req, res) => {
       // Eliminar un show por ID (Soft Delete)
       const deleteShow = async (req, res) => {
         try {
-          const { id } = req.params;
-          const show = await Show.findByPk(id);
+          const { idShow } = req.params;
+          const show = await Show.findByPk(idShow);
           if (!show) {
             return res.status(404).json({ error: 'Show no encontrado.' });
           }
