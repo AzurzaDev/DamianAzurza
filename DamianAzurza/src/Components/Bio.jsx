@@ -1,10 +1,12 @@
+import paraBio from '../assets/paraBio.png';
+
 const Bio = () => {
     return (
       <div className="flex flex-col md:flex-row items-center justify-between bg-gray-100 p-8">
         {/* Imagen a la izquierda */}
         <div className="w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
           <img
-            src="src/assets/paraBio.jpg" // Reemplaza con la ruta correcta
+            src= {paraBio}
             alt="Bio"
             className="w-4/5 h-auto rounded-lg object-cover shadow-lg"
           />
