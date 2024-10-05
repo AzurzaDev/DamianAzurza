@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-white shadow-md fixed w-full z-10">
+    <div className=" shadow-md fixed w-full z-10">
       <div className="container mx-auto flex items-center justify-between p-4">
         {/* Logo */}
         <div className="flex items-center">
@@ -24,22 +24,22 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Inicio
           </a>
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Shows
           </a>
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Proyectos
           </a>
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Servicios
           </a>
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Bio
           </a>
-          <a href="#" className="text-gray-700 text-xl font-semibold hover:underline">
+          <a href="#" className="text-gray-100 text-xl font-semibold hover:underline">
             Contacto
           </a>
         </div>
