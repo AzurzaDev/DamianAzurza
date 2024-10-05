@@ -4,6 +4,8 @@ import ImagenDebajoCarrousel from './ImagenDebajoCarrousel'
 import Shows from "./Shows";
 import Projects from './Projects'
 import Services from './Services'
+import Bio from './Bio'
+import Contact from './Contact'
 
 const Landing = () => {
   return (
@@ -14,6 +16,9 @@ const Landing = () => {
        <Shows/>
        <Projects/>
        <Services/>
+       <Bio/>
+       <Contact/>
+
 
     </div>
   );
