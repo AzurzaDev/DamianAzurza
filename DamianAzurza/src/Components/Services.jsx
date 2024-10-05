@@ -2,10 +2,18 @@ import { IoMdMusicalNote } from "react-icons/io";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { PiUserSoundFill } from "react-icons/pi";
 import { FaPauseCircle } from "react-icons/fa";
+import debajoDeProyectos from '../assets/debajoDeProyectos.png'
 
 const Services = () => {
   return (
+
+
     <div className="bg-gray-100 py-16">
+<img
+        src="src/assets/debajoDeProyectos.png"
+        alt="Imagen Fija"
+        className="w-full h-full object-cover"
+      />
       <h2 className="text-3xl font-semibold text-center mb-8">Servicios</h2>
       <p className="text-center text-gray-500 mb-12">
         Figma lorem component variant main layer. Create scrolling team bold prototype background.
