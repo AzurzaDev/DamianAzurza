@@ -2,12 +2,14 @@ import { IoMdMusicalNote } from "react-icons/io";
 import { AiFillPlayCircle } from "react-icons/ai";
 import { PiUserSoundFill } from "react-icons/pi";
 import { FaPauseCircle } from "react-icons/fa";
+import debajoDeProyectos from '../assets/debajoDeProyectos.png'
+
 
 const Services = () => {
   return (
     <div className="bg-gray-100 py-16 -mt-16 ">
       <img
-        src="src/assets/debajoDeProyectos.png"
+        src={debajoDeProyectos}
         alt="Imagen Fija"
         className="w-full h-full object-cover"
       />
