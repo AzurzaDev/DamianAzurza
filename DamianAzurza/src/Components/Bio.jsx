@@ -1,4 +1,4 @@
-import paraBio from '../assets/paraBio.png';
+import paraBio from '../assets/paraBio.jpg';
 
 const Bio = () => {
     return (

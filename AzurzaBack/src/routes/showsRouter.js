@@ -8,7 +8,7 @@ router.post('/', createShow);
 
 router.get('/', getAllShows);
 
-// Ruta para obtener un show por ID
+
 router.get('/:idShow', getShowById);
 
 // Ruta para actualizar un show por ID
