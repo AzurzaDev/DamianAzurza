@@ -1,11 +1,13 @@
 import EscuchaMiMusica from "./EscuchaMiMusica";
 import Navbar from "./Navbar";
-import ImagenDebajoCarrousel from './ImagenDebajoCarrousel'
+
 import Shows from "./Shows";
-import Projects from './Projects'
+//import Projects from './Projects'
+SeccionAnimada
 import Services from './Services'
 import Bio from './Bio'
 import Contact from './Contact'
+import SeccionAnimada from "./SeccionAnimada";
 
 const Landing = () => {
   return (
@@ -14,7 +16,10 @@ const Landing = () => {
        <EscuchaMiMusica/>
        
        <Shows/>
-       <Projects/>
+       
+       {/* <Projects/> */}
+        
+       <SeccionAnimada/>
        <Services/>
        <Bio/>
        <Contact/>
