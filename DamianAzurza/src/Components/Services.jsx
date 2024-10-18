@@ -8,8 +8,12 @@ import debajoDeProyectos from "../assets/debajoDeProyectos.png";
 const Services = () => {
   const [activeCard, setActiveCard] = useState(null);
 
-  const handleCardClick = (index) => {
-    setActiveCard(index === activeCard ? null : index); // Alterna la selección de la tarjeta
+  const handleMouseEnter = (index) => {
+    setActiveCard(index);
+  };
+
+  const handleMouseLeave = () => {
+    setActiveCard(null);
   };
 
   const cards = [
@@ -18,28 +22,28 @@ const Services = () => {
       description: "Componente de ejemplo que describe la dirección musical de manera breve.",
       icon: <IoMdMusicalNote className="text-6xl text-gray-600 mb-4" />,
       activeDescription: "Descripción extendida de la dirección musical.",
-      color: "bg-blue-600",
+      color: "bg-fondoServicios",
     },
     {
       title: "Producción Musical",
       description: "Componente de ejemplo que describe la producción musical de manera breve.",
       icon: <AiFillPlayCircle className="text-6xl text-gray-600 mb-4" />,
       activeDescription: "Descripción extendida de la producción musical.",
-      color: "bg-green-600",
+      color: "bg-fondoServicios",
     },
     {
       title: "Solista",
       description: "Componente de ejemplo que describe el servicio de solista de manera breve.",
       icon: <PiUserSoundFill className="text-6xl text-gray-600 mb-4" />,
       activeDescription: "Descripción extendida del servicio de solista.",
-      color: "bg-red-600",
+      color: "bg-fondoServicios",
     },
     {
       title: "Duetos",
       description: "Componente de ejemplo que describe el servicio de duetos de manera breve.",
       icon: <FaPauseCircle className="text-6xl text-gray-600 mb-4" />,
       activeDescription: "Descripción extendida del servicio de duetos.",
-      color: "bg-purple-600",
+      color: "bg-fondoServicios",
     },
   ];
 
@@ -55,28 +59,44 @@ const Services = () => {
         Figma lorem component variant main layer. Create scrolling team bold prototype background.
       </p>
 
-      <div className="flex justify-center gap-8 z-10 relative">
+      <div className="flex flex-col md:flex-row justify-center gap-8 z-10 relative">
         {cards.map((card, index) => (
           <div
             key={index}
-            onClick={() => handleCardClick(index)}
-            className={`flex flex-col items-center text-center p-4 rounded-lg shadow-lg w-60 transition-all duration-500 
-              ${activeCard === index ? `${card.color} text-white w-96 h-60 z-20` : "bg-white text-gray-800"} 
-              ${activeCard !== null && activeCard !== index ? "opacity-0 absolute transform translate-x-20" : ""}`}
+            onMouseEnter={() => handleMouseEnter(index)}
+            onMouseLeave={handleMouseLeave}
+            className={`relative flex items-center justify-start p-4 shadow-lg transition-all duration-500 ease-out
+              ${activeCard === index ? `${card.color} text-white` : "bg-gray-300 text-gray-800"} 
+              ${activeCard !== index && activeCard !== null ? "transform scale-95" : ""}`}
             style={{
-              transform: activeCard === index ? "scale(1.2)" : "none",
-              transition: "all 0.5s ease-in-out",
-              position: activeCard !== null && activeCard !== index ? "absolute" : "relative",
-              left: activeCard !== null && activeCard !== index ? `${(index - activeCard) * 120}px` : "0",
+              width: activeCard === index ? "400px" : "200px", // Expande la tarjeta a 400px en hover
+              height: "200px", // Mantiene altura fija
+              overflow: "hidden",
+              transition: "width 0.5s ease, transform 0.3s ease", // Suaviza la transformación
             }}
           >
-            {/* El icono solo aparece si la tarjeta no está activa */}
-            {activeCard !== index && card.icon}
-            
-            <h3 className="text-xl font-semibold">{card.title}</h3>
-            <p className="text-sm mt-2">
-              {activeCard === index ? card.activeDescription : card.description}
-            </p>
+            {/* Icono y título */}
+            <div
+              className={`absolute top-4 left-0 right-0 h-full flex flex-col items-center justify-center transition-opacity duration-500
+                ${activeCard === index ? "opacity-0" : "opacity-100"}`} // Hace que el ícono desaparezca
+            >
+              <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
+              {card.icon}
+            </div>
+
+            {/* Texto que aparece cuando la tarjeta se expande */}
+            <div
+              className={`absolute left-0 top-0 h-full pl-[100px] flex flex-col justify-center transition-opacity duration-500 
+                ${activeCard === index ? "opacity-100" : "opacity-0"}`} // Hace que el texto aparezca
+              style={{
+                width: "300px", // Ancho para el texto cuando la tarjeta está expandida
+              }}
+            >
+              <h3 className="text-xl font-semibold">{card.title}</h3>
+              <p className="text-sm mt-2">
+                {activeCard === index ? card.activeDescription : ""}
+              </p>
+            </div>
           </div>
         ))}
       </div>
@@ -85,6 +105,3 @@ const Services = () => {
 };
 
 export default Services;
-
-
-
