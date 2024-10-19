@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'; // Íconos de redes sociales
+import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'; 
 
 const Footer = () => {
   return (

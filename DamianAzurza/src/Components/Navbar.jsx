@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Logo from "../assets/LogoNavbar.png";
 import { IoPersonSharp } from "react-icons/io5";
+import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'; 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -44,8 +45,21 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Ingresar Button */}
-        <div className="hidden md:block">
+        {/* Redes Sociales y Botón Ingresar */}
+        <div className="hidden md:flex items-center space-x-6">
+          <div className="flex space-x-4">
+            <a href="#" className="text-gray-600 hover:text-gray-800">
+              <FiFacebook size={24} />
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-800">
+              <FiInstagram size={24} />
+            </a>
+            <a href="#" className="text-gray-600 hover:text-gray-800">
+              <FiYoutube size={24} />
+            </a>
+          </div>
+
+          {/* Ingresar Button */}
           <button className="bg-boton text-white text-xl py-2 px-4 rounded-md flex items-center space-x-2">
             <span>Ingresar</span>
             <IoPersonSharp />
@@ -72,24 +86,35 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden w-full"> {/* Aseguramos que el menú móvil ocupe todo el ancho */}
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 w-full"> {/* Ocupa 100% del ancho */}
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
               Inicio
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
               Shows
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
               Proyectos
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
               Servicios
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
-              Bio
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
+              Sobre mí
             </a>
-            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-gray-800 hover:bg-gray-100">
+            <a href="#" className="block px-3 py-2 rounded-md text-base font-medium text-fondoServicios font-Montserrat hover:bg-gray-100">
               Contacto
             </a>
+            <div className="flex space-x-4">
+              <a href="#" className="text-fondoServicios hover:text-gray-800">
+                <FiFacebook size={24} />
+              </a>
+              <a href="#" className="text-fondoServicios hover:text-gray-800">
+                <FiInstagram size={24} />
+              </a>
+              <a href="#" className="text-fondoServicios hover:text-gray-800">
+                <FiYoutube size={24} />
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -98,4 +123,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
