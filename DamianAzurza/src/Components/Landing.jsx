@@ -8,19 +8,19 @@ import Bio from './Bio';
 import Contact from './Contact';
 import VideosComponent from "./VideosComponent";
 import FotosComponent from "./FotosComponent";
+import Footer from "./Footer";
+
+
 const Landing = () => {
   return (
-    <div className="landing-container">
+    <div className="landing-container "> {/* Ajustar el padding-top para dejar espacio para el Navbar */}
        <Navbar />
-       <div className="mb-8">
+       <div className="">
          <EscuchaMiMusica />
        </div>
-       <div className="mb-8">
+       <div className="mb-2">
          <Shows />
        </div>
-       {/* <div className="mb-8"> */}
-       {/*   <Projects /> */}
-       {/* </div> */}
        <div className="mb-2">
          <SeccionAnimada />
        </div>
@@ -39,10 +39,11 @@ const Landing = () => {
        <div className="mb-2">
          <Contact />
        </div>
-      
+      <Footer />
     </div>
   );
 };
 
 export default Landing;
+
 
