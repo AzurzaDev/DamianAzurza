@@ -20,7 +20,10 @@ export const theme = {
       footer: "#49465a",
      fondoServicios:"#636363",
      fondoMas:"#D9D9D9",
-     fondoClaro:"#EBEBEB"
+     fondoClaro:"#EBEBEB",
+     fondoIconos:"#DADADA",
+     iconos:"#595959",
+     fondoClarito:"#FAFAFA"
 
     },
     fontFamily: {
