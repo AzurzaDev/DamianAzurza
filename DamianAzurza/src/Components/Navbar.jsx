@@ -3,6 +3,7 @@ import Logo from "../assets/LogoNavbar.png";
 import { IoPersonSharp } from "react-icons/io5";
 import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'; 
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,11 +18,13 @@ const Navbar = () => {
         
         {/* Logo */}
         <div className="flex items-center">
-          <img
-            src={Logo}
-            alt="Logo"
-            className="w-10 md:w-20"
-          />
+        <Link to="/"> {/* Envuelve el logo en un Link */}
+            <img
+              src={Logo}
+              alt="Logo"
+              className="w-10 md:w-20"
+            />
+          </Link>
         </div>
 
         {/* Desktop Menu */}
