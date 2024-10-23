@@ -6,8 +6,8 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false, // true para el puerto 465, false para otros puertos
     auth: {
-      user: 'guatapenocountry@gmail.com', // Tu correo de Gmail
-      pass: 'kgiz adhs boqt hedg' // Tu contraseña de Google o contraseña de aplicación
+      user: 'azurzadev@gmail.com', // Tu correo de Gmail
+      pass: 'pxrj zrox fjlu srzv' // Tu contraseña de Google o contraseña de aplicación
     }
   });
 
@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
 const sendEmail = async (contact) => {
   const mailOptions = {
     from: contact.email, // El correo del remitente
-    to: "guatapenocountry@gmail.com", // Tu dirección de correo electrónico
+    to: "azurzadev@gmail.com", // Tu dirección de correo electrónico
     subject: 'Nuevo mensaje de contacto', // Asunto del correo
     text: `
       Nombre: ${contact.name}

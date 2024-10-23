@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaMicrophone } from "react-icons/fa";
+import { FaMicrophone, FaHome } from "react-icons/fa";
 import { IoStatsChartSharp } from "react-icons/io5";
 import { PiMicrophoneStageFill } from "react-icons/pi";
 import { BiHeadphone } from "react-icons/bi";
@@ -24,30 +24,30 @@ const Services = () => {
   const cards = [
     {
       title: "Dirección Musical",
-      description: "Componente de ejemplo que describe la dirección musical de manera breve.",
+      description: "Gestiono el entorno y las herramientas necesarias para hacer sonar tu propuesta artística, ya sea para una presentación en vivo o para la grabación de un material.",
       icon: <BiHeadphone className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Descripción extendida de la dirección musical.",
+      activeDescription: "Gestiono el entorno y las herramientas necesarias para hacer sonar tu propuesta artística, ya sea para una presentación en vivo o para la grabación de un material.",
       color: "bg-fondoServicios",
     },
     {
       title: "Producción Musical",
-      description: "Componente de ejemplo que describe la producción musical de manera breve.",
+      description: "Tu proyecto artístico, solista o de banda puede hacerse realidad. Acercamos tu idea y juntos la potenciamos.",
       icon: <IoStatsChartSharp className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Descripción extendida de la producción musical.",
+      activeDescription: "Tu proyecto artístico, solista o de banda puede hacerse realidad. Acercamos tu idea y juntos la potenciamos.",
       color: "bg-fondoServicios",
     },
     {
       title: "Solista",
-      description: "Componente de ejemplo que describe el servicio de solista de manera breve.",
+      description: "Conocé mis diversos shows de covers y temas propios al mejor estilo hombre orquesta.",
       icon: <FaMicrophone className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Descripción extendida del servicio de solista.",
+      activeDescription: "Conocé mis diversos shows de covers y temas propios al mejor estilo hombre orquesta.",
       color: "bg-fondoServicios",
     },
     {
       title: "Duetos",
-      description: "Componente de ejemplo que describe el servicio de duetos de manera breve.",
+      description: "Conocé mis diversos shows de cover junto a diversos artistas.",
       icon: <PiMicrophoneStageFill className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Descripción extendida del servicio de duetos.",
+      activeDescription: "Conocé mis diversos shows de cover junto a diversos artistas.",
       color: "bg-fondoServicios",
     },
   ];
@@ -84,12 +84,12 @@ const Services = () => {
         />
       </div>
       <div className="mt-28">
-        <h2 className="text-4xl font-bold font-Montserrat text-center mb-8 text-fondoServicios z-10 relative">Servicios</h2>
-        <p className="text-center text-fondoServicios font-Montserrat font-semibold mb-12 z-10 relative">
+        <h2 className="text-4xl font-bold font-Montserrat text-center mb-8 text-fondoServicios z-1 relative">Servicios</h2>
+        <p className="text-center text-fondoServicios font-Montserrat font-semibold mb-12 z-1 relative">
           Figma lorem component variant main layer. Create scrolling team bold prototype background.
         </p>
 
-        <div className="flex flex-col md:flex-row justify-center gap-8 z-10 relative">
+        <div className="flex flex-col md:flex-row justify-center gap-8 z-1 relative">
           {cards.map((card, index) => (
             <div
               key={index}
@@ -131,7 +131,17 @@ const Services = () => {
             </div>
           ))}
         </div>
+         {/* Botón de "Contáctame" */}
+         <div className="flex justify-center mt-8">
+          <a
+            href="#contacto" // Reemplaza esto por el id o sección de contacto
+            className="bg-boton text-white font-Montserrat px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
+          >
+             Contactame<FaHome className="ml-2" />
+          </a>
+        </div>
       </div>
+     
     </div>
   );
 };

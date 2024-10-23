@@ -82,7 +82,7 @@ const Contact = () => {
       <div className="absolute inset-0 bg-white/70"></div>
 
       {/* Izquierda - Texto */}
-      <div className="relative w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 p-8">
+      <div id='contacto' className="relative w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 p-8">
         <h2 className="text-3xl font-bold mb-2 text-fondoServicios font-Montserrat">Contacto</h2>
         <p className="text-fondoServicios font-Montserrat mb-4">
           Para contrataciones de música en vivo, producción o dirección musical.
