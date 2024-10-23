@@ -6,7 +6,8 @@ import PhotosGallery from "./Components/PhotosGallery";
 // import ProtectedRoutes from './utils/ProtectedRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  // Asegúrate de importar los estilos
-
+import Login from "./Components/Admin/Login/Login";
+import CarouselImages from "./Components/Admin/CarouselImages"
 function App() {
   return (
     <>
@@ -22,6 +23,7 @@ function App() {
       />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/fotos" element={<PhotosGallery />} />
         {/* Ruta protegida: solo los administradores pueden ver el Panel */}
         <Route
@@ -29,6 +31,14 @@ function App() {
           element={
             // <ProtectedRoutes>
             <Panel />
+            // </ProtectedRoutes>
+          }
+        />
+          <Route
+          path="/panel/Images"
+          element={
+            // <ProtectedRoutes>
+            <CarouselImages />
             // </ProtectedRoutes>
           }
         />

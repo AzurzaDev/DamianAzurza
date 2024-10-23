@@ -50,13 +50,16 @@ export const loginAdmin = (adminData) => async (dispatch) => {
             type: LOGIN_SUCCESS,
             payload: response.data
         });
+        return response.data; // Agrega esta línea
     } catch (error) {
         dispatch({
             type: LOGIN_FAIL,
             payload: error.response.data.message
         });
+        throw error; // Lanza el error para manejarlo en el componente
     }
 };
+
 
 export const createContact = (contactData) => async (dispatch) => {
     try {
