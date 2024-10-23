@@ -80,7 +80,7 @@ const AgendaShows = () => {
           <div>
             <input 
               type="text" 
-              placeholder="Título" 
+              placeholder="Lugar y Horario" 
               value={title} 
               onChange={(e) => setTitle(e.target.value)} 
               required 

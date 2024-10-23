@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
-import axios from 'axios'; // Asegúrate de que axios está instalado
+import axios from 'axios'; 
 
 const EscuchaMiMusica = () => {
   const [images, setImages] = useState([]);
@@ -11,8 +11,8 @@ const EscuchaMiMusica = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/carousel'); // Cambia esto según tu endpoint
-        setImages(response.data); // Almacena las imágenes en el estado
+        const response = await axios.get('/carousel'); 
+        setImages(response.data);
       } catch (error) {
         console.error('Error al obtener las imágenes:', error);
       }
