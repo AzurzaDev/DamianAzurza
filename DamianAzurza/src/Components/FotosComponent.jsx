@@ -4,6 +4,7 @@ import uno from '../assets/dami.jpeg'; // Reemplaza con la ruta correcta de tus 
 import dos from '../assets/onlylovers.jpeg';
 import tres from '../assets/guitarraVioleta.png';
 
+
 const FotosComponent = () => {
   const navigate = useNavigate();
 

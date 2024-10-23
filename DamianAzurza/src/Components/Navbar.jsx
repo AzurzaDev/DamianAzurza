@@ -29,22 +29,22 @@ const Navbar = () => {
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#inicio" className="text-gray-800 text-xl font-semibold hover:underline">
             Inicio
           </a>
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#shows" className="text-gray-800 text-xl font-semibold hover:underline">
             Shows
           </a>
           <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
             Proyectos
           </a>
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#servicios" className="text-gray-800 text-xl font-semibold hover:underline">
             Servicios
           </a>
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#bio" className="text-gray-800 text-xl font-semibold hover:underline">
             Bio
           </a>
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#contacto" className="text-gray-800 text-xl font-semibold hover:underline">
             Contacto
           </a>
         </div>
@@ -52,13 +52,13 @@ const Navbar = () => {
         {/* Redes Sociales y Botón Ingresar */}
         <div className="hidden md:flex items-center space-x-6">
           <div className="flex space-x-4">
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="https://www.youtube.com/redirect?event=channel_header&redir_token=QUFFLUhqblVVcnZjQW9HcnRsZ1pfZ1dsUnc2NTdwUlhLQXxBQ3Jtc0trbVdHQmQ0c2JPdzBGdkt4bi13UFZhOFNBbDNPUHgtVUhtVDlSa0RnbTlKUi1tYW52WXVwMmVtYTVUWXZzTFQzbFFFdGE4M1BHX3ZuV2l5QVZJV1BfejBMeWc0anAyam9xZ3VWOFJHN0pWTVMzNDBiSQ&q=https%3A%2F%2Fwww.facebook.com%2Fdamianazurzamusician" >
               <FiFacebook size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==" className="text-gray-600 hover:text-gray-800">
               <FiInstagram size={24} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-gray-800">
+            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" className="text-gray-600 hover:text-gray-800">
               <FiYoutube size={24} />
             </a>
           </div>

@@ -75,7 +75,7 @@ const Contact = () => {
   };
 
   return (
-    <div 
+    <div id='contacto'
       className="relative flex flex-col md:flex-row items-center justify-between bg-white p-8 md: m-8"
       style={{ backgroundImage: `url(${paraContacto})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
     >
