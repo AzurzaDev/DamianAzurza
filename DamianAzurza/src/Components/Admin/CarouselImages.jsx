@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../Navbar';
 import { openCloudinaryWidget } from '../../cloudinaryConfig'; 
+import { Link } from 'react-router-dom';
 
 const CarouselImages = () => {
   const [title, setTitle] = useState('');
@@ -75,7 +76,7 @@ const CarouselImages = () => {
       <div className='fixed top-0 left-0 z-50 w-full'>
         <NavBar />
       </div>
-      <h1 className="bg-ColorMorado text-2xl font-bold font-nunito p-2 text-gray-200 mb-8 mt-28">Cargar Imagenes para Carrusel Principal</h1>
+      <h1 className="bg-fondoServicios text-2xl font-bold font-nunito p-2 text-gray-200 mb-8 mt-28">Cargar Imagenes para Carrusel Principal</h1>
       <form onSubmit={(e) => { e.preventDefault(); handleImageUpload(); }}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">Título</label>
@@ -115,10 +116,13 @@ const CarouselImages = () => {
         <button 
           type="button" 
           onClick={handleImageUpload} 
-          className="bg-ColorAzul hover:bg-blue-300 text-gray-600 font-bold font-nunito py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+          className=" w-1/2 bg-fondoServicios text-white font-Montserrat hover:bg-gray-300  font-bold  py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         >
           Subir Imagen
         </button>
+        <Link to="/panel" className="w-1/2 mt-4 block text-center bg-gray-300 text-gray-700 py-2 rounded font-Montserrat hover:bg-fondoServicios transition">
+          Volver al Panel
+        </Link>
       </form>
 
       {/* Mostrar imágenes del carrusel */}
