@@ -75,7 +75,7 @@ const Services = () => {
   }, [isSmallScreen]);
 
   return (
-    <div>
+    <div id="servicios">
       <div className="py-16 h-56 object-contain relative">
         <img
           src={debajoDeProyectos}

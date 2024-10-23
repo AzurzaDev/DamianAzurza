@@ -1,5 +1,6 @@
 import { FiInstagram, FiYoutube, FiFacebook } from "react-icons/fi";
 import { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import navbar2 from "../assets/debajoSlider.png";
 import img1 from "../assets/solista.png";
 import img2 from "../assets/produccion.png";
@@ -67,12 +68,13 @@ const PhotosGallery = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute top-0 left-0 w-full h-full flex flex-col md:flex-row items-center justify-between p-4">
           {/* Logo */}
+          <Link to="/">
           <img
             src="LogoNavbar.png"
             alt="Logo"
             className="w-12 h-12 md:w-16 md:h-16 mb-2 md:mb-0"
           />
-          
+          </Link>
           {/* Título */}
           <h1 className="text-white text-3xl md:text-5xl font-bold text-center w-full mb-2 md:mb-0">
             Fotos

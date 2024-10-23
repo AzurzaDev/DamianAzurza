@@ -46,7 +46,7 @@ const SeccionAnimada = () => {
   }, []);
 
   return (
-    <div className="w-full h-full bg-black flex justify-center items-center relative py-12">
+    <div  className="w-full h-full bg-black flex justify-center items-center relative py-12">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-3/4 h-auto p-4">
       <div className="grid grid-cols-2 gap-8">
         {images.map((image, index) => (

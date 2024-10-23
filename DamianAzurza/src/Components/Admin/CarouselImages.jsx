@@ -2,15 +2,16 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../Navbar';
 import { openCloudinaryWidget } from '../../cloudinaryConfig'; 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 const CarouselImages = () => {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [ruta, setruta] = useState('');
+  const [ruta, setRuta] = useState('');
   const [carouselImages, setCarouselImages] = useState([]);
+  const navigate = useNavigate();
 
-  // Obtener las imágenes cargadas del servidor
+  
   useEffect(() => {
     const fetchCarouselImages = async () => {
       try {
@@ -23,6 +24,25 @@ const CarouselImages = () => {
 
     fetchCarouselImages();
   }, []);
+
+  useEffect(() => {
+    if (ruta) {
+      if (ruta.startsWith('http')) {
+        // Abrir enlace externo en nueva pestaña
+        window.open(ruta, '_blank');
+        setRuta(''); // Limpiar el valor después de abrir
+      } else if (ruta.startsWith('#')) {
+        // Hacer scroll a la sección correspondiente
+        const element = document.querySelector(ruta);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Navegar a rutas internas
+        navigate(ruta);
+      }
+    }
+  }, [ruta, navigate]);
 
   const handleImageUpload = () => {
     openCloudinaryWidget((uploadedImage) => {
@@ -40,16 +60,16 @@ const CarouselImages = () => {
             imageUrl: response.data.secure_url,
           };
 
-          // Guardar los datos del carrusel
+          
           return axios.post('/carousel', carouselData);
         })
         .then(() => {
-          // Limpiar los campos
+          
           setTitle('');
           setDescription('');
-          setruta('');
+          setRuta('');
 
-          // Refrescar las imágenes después de subir una nueva
+         
           return axios.get('/carousel');
         })
         .then((updatedImages) => {
@@ -70,13 +90,16 @@ const CarouselImages = () => {
       console.error('Error al eliminar la imagen:', error);
     }
   };
+ 
+  
+
 
   return (
     <div className="container mx-auto p-4 mt-10">
       <div className='fixed top-0 left-0 z-50 w-full'>
         <NavBar />
       </div>
-      <h1 className="bg-fondoServicios text-2xl font-bold font-nunito p-2 text-gray-200 mb-8 mt-28">Cargar Imagenes para Carrusel Principal</h1>
+      <h1 className="bg-fondoServicios text-2xl font-bold font-Montserrat p-2 text-gray-200 mb-8 mt-28">Cargar Imagenes para Carrusel Principal</h1>
       <form onSubmit={(e) => { e.preventDefault(); handleImageUpload(); }}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">Título</label>
@@ -103,14 +126,16 @@ const CarouselImages = () => {
           <select
             id="ruta"
             value={ruta}
-            onChange={(e) => setruta(e.target.value)}
+            onChange={(e) => setRuta(e.target.value)}
             required
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Seleccione una Ruta</option>
-            <option value="contacto">Contacto</option>
-            <option value="imagenes">Fotos</option>
-            <option value="shows">Shows</option>
+            <option value="#contacto">Contacto</option>
+            <option value="/fotos">Fotos</option>
+            <option value="#shows">Shows</option>
+            <option value="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d">YouTube</option>
+            <option value="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==">Instagram</option>
           </select>
         </div>
         <button 

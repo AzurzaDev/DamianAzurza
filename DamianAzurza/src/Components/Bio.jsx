@@ -4,7 +4,7 @@ import cvPDF from '../assets/CV.pdf'; // Importa tu archivo PDF
 
 const Bio = () => {
   return (
-    <div className="relative flex flex-col md:flex-row items-center justify-between bg-fondoClaro p-8 md: m-4">
+    <div id='bio' className="relative flex flex-col md:flex-row items-center justify-between bg-fondoClaro p-8 md: m-4">
       {/* Imagen a la izquierda */}
       <div className="w-full md:w-1/2 flex justify-center items-center mb-4 md:mb-0">
         <img

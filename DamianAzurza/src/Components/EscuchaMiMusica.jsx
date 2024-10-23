@@ -65,7 +65,7 @@ const EscuchaMiMusica = () => {
   }, []);
 
   return (
-    <div ref={carouselRef} className="relative w-full h-screen overflow-hidden flex justify-center items-center">
+    <div id="inicio" ref={carouselRef} className="relative w-full h-screen overflow-hidden flex justify-center items-center">
       {images.length > 0 && (
         <>
           <div className="w-full h-full">
@@ -95,10 +95,10 @@ const EscuchaMiMusica = () => {
           {/* Título y botón para la ruta */}
           <div className="absolute bottom-4 right-4 flex items-center">
            
-            <a
-              href={`/${images[currentIndex].ruta}`} // Redirige a la ruta
+          <a
+              href={images[currentIndex].ruta} // Asegúrate de que 'ruta' sea la URL completa
               className="bg-fondoServicios text-white px-4 py-2 rounded uppercase hover:bg-gray-600"
-              target="_blank" // Abre en una nueva pestaña
+              target={images[currentIndex].ruta.startsWith('http') ? "_blank" : "_self"} // Abre en nueva pestaña si es externo
               rel="noopener noreferrer"
             >
             {images[currentIndex].title}
