@@ -1,5 +1,5 @@
 const nodemailer = require('nodemailer');
-
+const { Contacto } = require('./data');
 // Configurar el transporte de Nodemailer
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
@@ -14,18 +14,26 @@ const transporter = nodemailer.createTransport({
 // Función para enviar el correo
 const sendEmail = async (contact) => {
   const mailOptions = {
-    from: contact.email, // El correo del remitente
-    to: "azurzadev@gmail.com", // Tu dirección de correo electrónico
-    subject: 'Nuevo mensaje de contacto', // Asunto del correo
-    text: `
-      Nombre: ${contact.name}
-      Email: ${contact.email}
-      Teléfono: ${contact.phone}
-      Suscripción: ${contact.isSuscripto ? 'Sí' : 'No'}
-    `, // Contenido del correo
-  };
+    from: 'azurzadev@gmail.com', // Cambia esto a tu dirección
+    to: contact.email,
+    subject: 'Nuevo Show Disponible',
+    html: `
+    <p>Hola ${contact.name},</p>
+    <p>Hay un nuevo show disponible. Revisa nuestra página para más detalles!</p>
+    <p><a href="https://damian-azurza.vercel.app/" style="color: blue; text-decoration: underline;">Visitar la Página</a></p>
+    <p>¡Esperamos verte pronto!</p>
+  `
+};
 
   await transporter.sendMail(mailOptions);
 };
+const notifySubscribedContacts = async () => {
+  try {
+    const contacts = await Contacto.findAll({ where: { isSuscripto: true } });
+    await Promise.all(contacts.map(contact => sendEmail(contact)));
+  } catch (error) {
+    console.error('Error al enviar correos a contactos:', error);
+  }
+};
 
-module.exports = { sendEmail };
+module.exports = { sendEmail, notifySubscribedContacts };

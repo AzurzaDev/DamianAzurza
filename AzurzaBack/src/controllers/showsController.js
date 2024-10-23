@@ -1,4 +1,5 @@
 const {Show} = require('../data')
+const { notifySubscribedContacts } = require('../emailService');
 
 const createShow = async (req, res) => {
     try {
@@ -15,7 +16,8 @@ const createShow = async (req, res) => {
       });
       
       console.log('Nuevo Show Creado:', newShow); 
-  
+      await notifySubscribedContacts();
+      
       res.status(201).json(newShow);
     } catch (error) {
       console.error('Error en createShow:', error); 

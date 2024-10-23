@@ -7,7 +7,10 @@ import PhotosGallery from "./Components/PhotosGallery";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  // Asegúrate de importar los estilos
 import Login from "./Components/Admin/Login/Login";
-import CarouselImages from "./Components/Admin/CarouselImages"
+import CarouselImages from "./Components/Admin/CarouselImages";
+import ContactList from "./Components/Admin/ContactList";
+
+
 function App() {
   return (
     <>
@@ -39,6 +42,14 @@ function App() {
           element={
             // <ProtectedRoutes>
             <CarouselImages />
+            // </ProtectedRoutes>
+          }
+        />
+           <Route
+          path="/panel/contact"
+          element={
+            // <ProtectedRoutes>
+            <ContactList />
             // </ProtectedRoutes>
           }
         />
