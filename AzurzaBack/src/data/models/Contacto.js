@@ -24,6 +24,10 @@ module.exports = (sequelize) => {
         type: DataTypes.BOOLEAN,
         defaultValue:false
       },
+      message: {
+        type: DataTypes.TEXT, 
+        allowNull: true,
+      },
      
       deletedAt: {
         type: DataTypes.DATE,
@@ -35,6 +39,8 @@ module.exports = (sequelize) => {
         allowNull: false,
         defaultValue: DataTypes.NOW,
       },
+   
+
     },
     {
       paranoid: true,

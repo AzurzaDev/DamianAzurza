@@ -1,8 +1,9 @@
 const { Contacto } = require('../data'); // Asegúrate de que la ruta sea correcta
+const { sendEmail } = require('../emailService');
 
 // Controlador para crear un nuevo contacto
 exports.createContact = async (req, res) => {
-  const { name, email, phone, isSuscripto } = req.body;
+  const { name, email, phone, isSuscripto, message } = req.body;
 
   try {
     
@@ -12,7 +13,8 @@ exports.createContact = async (req, res) => {
     }
 
     
-    const newContact = await Contacto.create({ name, email, phone, isSuscripto });
+    const newContact = await Contacto.create({ name, email, phone, isSuscripto, message });
+    await sendEmail({ name, email, phone, isSuscripto, message });
     res.status(201).json({ message: 'Contacto registrado con éxito', contact: newContact });
   } catch (error) {
     res.status(500).json({ message: 'Error al registrar el contacto', error: error.message });
