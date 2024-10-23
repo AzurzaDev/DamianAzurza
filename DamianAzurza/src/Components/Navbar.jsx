@@ -2,10 +2,11 @@ import { useState } from 'react';
 import Logo from "../assets/LogoNavbar.png";
 import { IoPersonSharp } from "react-icons/io5";
 import { FiFacebook, FiInstagram, FiYoutube } from 'react-icons/fi'; 
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const navigate = useNavigate();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -60,7 +61,7 @@ const Navbar = () => {
           </div>
 
           {/* Ingresar Button */}
-          <button className="bg-boton text-white text-xl py-2 px-4 rounded-md flex items-center space-x-2">
+          <button onClick={() => navigate("/login")} className="bg-boton text-white text-xl py-2 px-4 rounded-md flex items-center space-x-2">
             <span>Ingresar</span>
             <IoPersonSharp />
           </button>

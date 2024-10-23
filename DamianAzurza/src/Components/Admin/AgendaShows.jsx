@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { createShow, getAllShows, updateShow, deleteShow } from '../../redux/Actions/actions'; 
 import Navbar from '../Navbar';
 import { openCloudinaryWidget } from '../../cloudinaryConfig'; 
+import { Link } from 'react-router-dom';
+
 
 const AgendaShows = () => {
   const dispatch = useDispatch();
@@ -129,6 +131,9 @@ const AgendaShows = () => {
             {editingShowId ? 'Actualizar Show' : 'Crear Show'}
           </button>
         </form>
+        <Link to="/panel" className="w-full mt-4 block text-center bg-gray-300 text-gray-700 py-2 rounded hover:bg-gray-400 transition">
+          Volver al Panel
+        </Link>
       </div>
       
       {/* Lista de Shows creados */}
