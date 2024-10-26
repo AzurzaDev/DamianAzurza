@@ -12,6 +12,7 @@ const AgendaShows = () => {
   const shows = useSelector((state) => state.shows); // Asegúrate de que el estado esté estructurado correctamente
   const [images, setImages] = useState([]);
   const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [direccion, setDireccion] = useState('');
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
@@ -32,7 +33,8 @@ const AgendaShows = () => {
     const showData = {
       images,
       title,
-      direccion, // Corrige el nombre de la variable aquí
+      direccion,
+      description,
       date,
       city,
     };
@@ -50,6 +52,7 @@ const AgendaShows = () => {
     // Limpiar los campos después de crear o editar el show
     setTitle('');
     setDireccion('');
+    setDescription('');
     setDate('');
     setCity('');
     setImages([]);
@@ -59,6 +62,7 @@ const AgendaShows = () => {
     
     setTitle(show.title);
     setDireccion(show.direccion);
+    setDescription(show.description);
     setDate(show.date);
     setCity(show.city);
     setImages(show.images || []); 
@@ -93,6 +97,16 @@ const AgendaShows = () => {
               placeholder="Dirección" 
               value={direccion} 
               onChange={(e) => setDireccion(e.target.value)} 
+              required 
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+            />
+          </div>
+          <div>
+            <input 
+              type="text" 
+              placeholder="Descripcion" 
+              value={description} 
+              onChange={(e) => setDescription(e.target.value)} 
               required 
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
             />
@@ -144,6 +158,7 @@ const AgendaShows = () => {
             <li key={show.idShow} className="bg-white p-4 rounded shadow">
               <h3 className="font-bold">{show.title}</h3>
               <p>Dirección: {show.direccion}</p>
+              <p>Descripción: {show.description}</p>
               <p>Ciudad: {show.city}</p>
               <p>Fecha: {show.date}</p>
               {/* Botón de edición */}
