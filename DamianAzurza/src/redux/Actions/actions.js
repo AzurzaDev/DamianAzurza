@@ -111,6 +111,7 @@ export const createShow = (showData) => async (dispatch) => {
 export const getAllShows = () => async (dispatch) => {
     try {
         const response = await axios.get('/shows');
+       console.log(response)
         dispatch({
             type: GET_ALL_SHOWS_SUCCESS,
             payload: response.data
