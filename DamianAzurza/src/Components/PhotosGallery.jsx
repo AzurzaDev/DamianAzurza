@@ -12,7 +12,7 @@ const PhotosGallery = () => {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/fotos');
+        const response = await axios.get('/fotos');
         const images = response.data.map(image => image.src);
         setAllImages(images);
         setVisibleImages(images); // Muestra todas las imágenes desde el principio
