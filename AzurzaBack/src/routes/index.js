@@ -8,6 +8,6 @@ router.use("/contacts", require("./contact"));
 router.use('/shows', require('./showsRouter'))
 router.use("/carousel", require("./carouselRoutes"))
 router.use("/fotos", require('./fotosRoutes'))
-
+router.use("/videos", require('./videosRoutes'))
 
 module.exports = router;

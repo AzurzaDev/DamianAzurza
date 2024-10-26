@@ -10,7 +10,8 @@ import Login from "./Components/Admin/Login/Login";
 import CarouselImages from "./Components/Admin/CarouselImages";
 import ContactList from "./Components/Admin/ContactList";
 import CreateFotos from "./Components/Admin/CreateFotos";
-
+import CargarVideos from "./Components/Admin/CargarVideos";
+import VideoGallery from "./Components/Videos";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<Login />} />
         <Route path="/fotos" element={<PhotosGallery />} />
+        <Route path="/videos" element={<VideoGallery />} />
         {/* Ruta protegida: solo los administradores pueden ver el Panel */}
         <Route
           path="/panel"
@@ -67,6 +69,14 @@ function App() {
           element={
             // <ProtectedRoutes>
             <CreateFotos />
+            // </ProtectedRoutes>
+          }
+        />
+           <Route
+          path="/panel/Videos"
+          element={
+            // <ProtectedRoutes>
+            <CargarVideos />
             // </ProtectedRoutes>
           }
         />
