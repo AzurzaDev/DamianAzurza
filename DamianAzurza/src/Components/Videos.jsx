@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFacebookSquare, FaYoutube } from 'react-icons/fa';
 import { PiInstagramLogoFill } from "react-icons/pi";
+import { Link } from 'react-router-dom';
 
 const VideoGallery = () => {
   const [videos, setVideos] = useState([]);
@@ -44,7 +45,7 @@ const VideoGallery = () => {
       {isMenuOpen && (
         <div className="w-1/4 bg-gray-100 p-4 flex flex-col">
           <button onClick={toggleMenu} className="self-end mb-4 font-Montserrat text-boton">X</button>
-          <h2 className="text-2xl font-semibold font-Montserrat text-boton mb-4">Inicio</h2>
+          <Link  to="/" className="text-2xl font-semibold font-Montserrat text-boton mb-4">Inicio</Link>
           <ul className="mb-4 space-y-2">
             <li onClick={() => setSelectedArtist('')} className="cursor-pointer font-Montserrat hover:text-blue-500">Todos</li>
             {[...new Set(videos.map((video) => video.artista))].map((artist) => (
