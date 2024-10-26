@@ -9,7 +9,7 @@ const FotosComponent = () => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/fotos'); // Cambia '/nueva-ruta' por el componente al que deseas redirigir
+    navigate('/fotos');
   };
 
   return (
