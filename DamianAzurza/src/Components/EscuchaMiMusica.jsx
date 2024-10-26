@@ -98,7 +98,8 @@ const EscuchaMiMusica = () => {
           <a
               href={images[currentIndex].ruta} // Asegúrate de que 'ruta' sea la URL completa
               className="bg-fondoServicios text-white px-4 py-2 rounded uppercase hover:bg-gray-600"
-              target={images[currentIndex].ruta.startsWith('http') ? "_blank" : "_self"} // Abre en nueva pestaña si es externo
+              target={images[currentIndex].ruta && images[currentIndex].ruta.startsWith('http') ? "_blank" : "_self"}
+ 
               rel="noopener noreferrer"
             >
             {images[currentIndex].title}

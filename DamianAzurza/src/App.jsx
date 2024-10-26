@@ -9,6 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';  // Asegúrate de importar los e
 import Login from "./Components/Admin/Login/Login";
 import CarouselImages from "./Components/Admin/CarouselImages";
 import ContactList from "./Components/Admin/ContactList";
+import CreateFotos from "./Components/Admin/CreateFotos";
 
 
 function App() {
@@ -61,6 +62,15 @@ function App() {
             // </ProtectedRoutes>
           }
         />
+          <Route
+          path="/panel/Fotos"
+          element={
+            // <ProtectedRoutes>
+            <CreateFotos />
+            // </ProtectedRoutes>
+          }
+        />
+       
       </Routes>
     </>
   );
