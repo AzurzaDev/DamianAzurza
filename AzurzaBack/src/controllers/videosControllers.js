@@ -2,7 +2,7 @@
 const {Videos} = require('../data');
 
 const createVideos = async (req, res) => {
-    const { title, description, videoUrl, artista, date } = req.body;
+    const { title, description, videoUrl, artista, date, category } = req.body;
   
     // Verificar si la URL de la videon se ha recibido
     if (!videoUrl) {
@@ -17,6 +17,7 @@ const createVideos = async (req, res) => {
         description,
         artista,
         date,
+        category,
       });
   
       res.status(201).json(newVideo);

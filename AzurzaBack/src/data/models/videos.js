@@ -22,5 +22,10 @@ module.exports = (sequelize) => {
         allowNull: true,
         defaultValue: null
       },
+      category: {
+        type: DataTypes.ENUM,
+        values: ['Producción Musical', 'Dirección Musical'],
+        allowNull: false,
+      },
   },{timestamps:false});
 };
