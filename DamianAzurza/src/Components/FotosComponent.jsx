@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; // Asumiendo que estás usando React Router para la navegación
-import uno from '../assets/dami.jpeg'; // Reemplaza con la ruta correcta de tus imágenes
+import uno from '../assets/dami.jpg'; // Reemplaza con la ruta correcta de tus imágenes
 import dos from '../assets/onlylovers.jpeg';
-import tres from '../assets/guitarraVioleta.png';
+import tres from '../assets/guitarraBanner.png';
 
 
 const FotosComponent = () => {
