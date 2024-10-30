@@ -4,7 +4,7 @@ const { notifySubscribedContacts } = require('../emailService');
 const createShow = async (req, res) => {
     try {
       console.log('Request Body:', req.body); 
-      const { title, direccion, city, description, date, images } = req.body;
+      const { title, direccion, city, description, date, images, src } = req.body;
       
       const newShow = await Show.create({
         title,
@@ -13,6 +13,7 @@ const createShow = async (req, res) => {
         description,
         date,
         images,
+        src,
       });
       
       console.log('Nuevo Show Creado:', newShow); 
@@ -53,7 +54,7 @@ const createShow = async (req, res) => {
       const updateShow = async (req, res) => {
         try {
           const { idShow } = req.params;
-          const { title, direccion, city, description, date, images } = req.body;
+          const { title, direccion, city, description, date, images, src } = req.body;
       
           const show = await Show.findByPk(idShow);
           if (!show) {
@@ -67,6 +68,7 @@ const createShow = async (req, res) => {
             description,
             date,
             images,
+            src,
           });
       
           res.status(200).json(show);

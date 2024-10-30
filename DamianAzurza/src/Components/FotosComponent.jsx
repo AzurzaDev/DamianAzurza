@@ -13,13 +13,13 @@ const FotosComponent = () => {
   };
 
   return (
-    <div className="grid grid-cols-2 grid-rows-2  h-screen">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  grid-rows-3  h-screen bg-black">
       {/* Primera imagen grande con el título */}
-      <div className="relative col-span-1 row-span-2">
+      <div className="relative col-span-1 md:col-span-2 row-span-2">
         <img
           src={uno}
           alt="Foto 1"
-          className="w-full h-full object-cover"
+          className="w-full h-screen object-cover"
         />
         {/* Título sobre la imagen */}
         <div className="absolute top-0 left-0 w-full h-full flex items-start justify-start p-4">
@@ -28,7 +28,7 @@ const FotosComponent = () => {
       </div>
 
       {/* Segunda imagen */}
-      <div className="relative">
+      <div className="relative col-span-1 row-span-1 md:row-span-2">
         <img
           src={dos}
           alt="Foto 2"
@@ -37,7 +37,7 @@ const FotosComponent = () => {
       </div>
 
       {/* Tercera imagen con el botón */}
-      <div className="relative">
+      <div className="relative col-span-1 md:col-span-3 row-span-1">
         <img
           src={tres}
           alt="Foto 3"

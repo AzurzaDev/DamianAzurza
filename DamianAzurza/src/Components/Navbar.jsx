@@ -43,7 +43,7 @@ const Navbar = () => {
             Servicios
           </a>
           <a href="#bio" className="text-gray-800 text-xl font-semibold hover:underline">
-            Bio
+            Sobre mi
           </a>
           <a href="#contacto" className="text-gray-800 text-xl font-semibold hover:underline">
             Contacto

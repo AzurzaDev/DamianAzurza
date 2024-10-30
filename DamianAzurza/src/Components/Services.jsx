@@ -102,7 +102,7 @@ const Services = () => {
                 width: activeCard === index ? "400px" : "200px", // Expande la tarjeta a 400px en hover
                 height: "200px", // Mantiene altura fija
                 overflow: "hidden",
-                transition: "width 0.5s ease, transform 0.3s ease", // Suaviza la transformación
+                transition: "width 1.2s ease, transform 0.3s ease", // Suaviza la transformación
               }}
             >
               {/* Icono y título */}

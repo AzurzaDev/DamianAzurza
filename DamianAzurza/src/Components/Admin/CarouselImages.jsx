@@ -131,11 +131,16 @@ const CarouselImages = () => {
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Seleccione una Ruta</option>
-            <option value="#contacto">Contacto</option>
+            <option value="contacto">Contacto</option>
+            <option value="fotos">Fotos</option>
+            <option value="shows">Shows</option>
+            <option value="youtube">YouTube</option>
+            <option value="instagram">Instagram</option>
+            {/* <option value="#contacto">Contacto</option>
             <option value="/fotos">Fotos</option>
             <option value="#shows">Shows</option>
             <option value="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d">YouTube</option>
-            <option value="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==">Instagram</option>
+            <option value="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==">Instagram</option> */}
           </select>
         </div>
         <button 

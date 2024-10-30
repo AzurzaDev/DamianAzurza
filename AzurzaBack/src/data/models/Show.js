@@ -35,6 +35,10 @@ module.exports = (sequelize) => {
         defaultValue: [],
         allowNull: false,
       },
+      src: {
+        type: DataTypes.STRING,
+        allowNull: false, 
+      },
      
       deletedAt: {
         type: DataTypes.DATE,

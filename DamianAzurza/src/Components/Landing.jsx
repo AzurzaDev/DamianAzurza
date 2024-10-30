@@ -30,7 +30,7 @@ const Landing = () => {
        <div className="mb-2">
          <Bio />
        </div>
-       <div className="mb-2">
+       <div className="">
          <VideosComponent />
        </div>
        <div className="mb-2">
