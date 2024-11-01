@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFacebookSquare, FaYoutube } from 'react-icons/fa';
 import { PiInstagramLogoFill } from "react-icons/pi";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import logo from '../assets/logoNavbar.png';
 
 const VideoGallery = () => {
@@ -10,29 +10,46 @@ const VideoGallery = () => {
   const [filteredVideos, setFilteredVideos] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [artists, setArtists] = useState([]); // Lista de artistas según la categoría
 
-  // Obtén el parámetro de categoría desde la URL
+  // Obtener el parámetro de categoría desde la URL
   const location = useLocation();
+  const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
   const urlCategory = searchParams.get('category') || '';
 
   useEffect(() => {
-    // Fetch videos from backend
+    // Obtener videos desde el backend
     axios.get('/videos')
       .then((response) => {
         setVideos(response.data);
-        setFilteredVideos(response.data);
+
+        // Filtrar videos y artistas al cargar la página
+        filterVideosAndArtists(response.data, urlCategory);
       })
       .catch((error) => console.error('Error al obtener los videos:', error));
-  }, []);
+  }, [urlCategory]);
+
+  const filterVideosAndArtists = (videosData, category) => {
+    // Filtrar videos según la categoría de la URL
+    let filtered = videosData;
+    if (category && category !== 'Todos') {
+      filtered = videosData.filter((video) => video.category === category);
+    }
+    setFilteredVideos(filtered);
+
+    // Obtener una lista única de artistas que coinciden con la categoría actual
+    const filteredArtists = [...new Set(filtered.map((video) => video.artista))];
+    setArtists(filteredArtists); // Actualizar solo con artistas de la categoría
+  };
 
   useEffect(() => {
-    // Filter videos based on selected artist and category from URL
+    // Filtrar los videos cuando se selecciona un artista
     let filtered = videos;
     if (selectedArtist) {
       filtered = filtered.filter((video) => video.artista === selectedArtist);
     }
-    if (urlCategory) {
+    if (urlCategory && urlCategory !== 'Todos') {
       filtered = filtered.filter((video) => video.category === urlCategory);
     }
     setFilteredVideos(filtered);
@@ -48,22 +65,37 @@ const VideoGallery = () => {
     return match ? match[1] : null;
   };
 
-  // Set the title based on category selection
-  const pageTitle = urlCategory || selectedArtist || "Producción Musical / Dirección Musical";
+  // Título basado en selección de categoría
+  const pageTitle = urlCategory || "Producción Musical / Dirección Musical";
+
+  // Selección de categoría desde el menú
+  const handleCategorySelection = (category) => {
+    setSelectedArtist('');
+    if (category === 'Todos') {
+      navigate('/videos'); // Limpiar la URL
+    } else {
+      navigate(`/videos?category=${category}`);
+    }
+  };
 
   return (
-    <div className="flex h-screen">
+    <div  className="flex h-screen">
       {/* Sidebar */}
       {isMenuOpen && (
         <div className="w-1/4 bg-gray-200 p-4 flex flex-col">
           <button onClick={toggleMenu} className="self-end mb-4 font-Montserrat text-boton">X</button>
+          <img src={logo} alt="Logo"  className="h-12 w-12 object-cover mb-4 block md:hidden"  />
           <Link to="/" className="text-2xl font-semibold font-Montserrat text-boton mb-4">Inicio</Link>
-          <img src={logo} alt="Logo" className="h-12 w-auto mb-4 block md:hidden" />
+          
           <ul className="mb-4 space-y-2">
-            <li onClick={() => { setSelectedArtist(''); }} className="cursor-pointer font-Montserrat hover:text-blue-500">Todos</li>
-
-            {/* Artists Filter */}
-            {[...new Set(videos.map((video) => video.artista))].map((artist) => (
+            <li
+              onClick={() => handleCategorySelection('Todos')}
+              className="cursor-pointer font-Montserrat hover:text-blue-500"
+            >
+              Todos
+            </li>
+            {/* Filtrado de artistas según la categoría en la URL */}
+            {artists.map((artist) => (
               <li
                 key={artist}
                 onClick={() => { setSelectedArtist(artist); }}
@@ -136,3 +168,4 @@ const VideoGallery = () => {
 };
 
 export default VideoGallery;
+

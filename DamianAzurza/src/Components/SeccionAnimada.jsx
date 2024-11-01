@@ -47,7 +47,7 @@ const SeccionAnimada = () => {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-black flex flex-col md:flex-row justify-center items-center relative py-12">
+    <div id="proyectos" className="w-full min-h-screen bg-black flex flex-col md:flex-row justify-center items-center relative py-12">
       {/* Contenedor en CSS Grid para alinear las imágenes */}
       <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full md:w-2/3 px-4 h-full">
         {/* Imagen 1 (más vertical) */}

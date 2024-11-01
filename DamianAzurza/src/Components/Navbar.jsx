@@ -36,7 +36,7 @@ const Navbar = () => {
           <a href="#shows" className="text-gray-800 text-xl font-semibold hover:underline">
             Shows
           </a>
-          <a href="/videos" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#proyectos" className="text-gray-800 text-xl font-semibold hover:underline">
             Proyectos
           </a>
           <a href="#servicios" className="text-gray-800 text-xl font-semibold hover:underline">
