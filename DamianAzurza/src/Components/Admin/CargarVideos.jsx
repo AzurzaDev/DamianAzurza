@@ -10,6 +10,8 @@ const CargarVideos = () => {
   const [description, setDescription] = useState('');
   const [artista, setArtista] = useState('');
   const [date, setDate] = useState('');
+  const [category, setCategory] = useState('');
+
 
   useEffect(() => {
     const fetchVideos = async () => {
@@ -32,6 +34,7 @@ const CargarVideos = () => {
       artista,
       description,
       date,
+      category,
     };
 
     try {
@@ -49,6 +52,7 @@ const CargarVideos = () => {
       setArtista('');
       setDescription('');
       setDate('');
+      setCategory('')
     } catch (error) {
       console.error('Error al guardar el video:', error);
     }
@@ -132,6 +136,19 @@ const CargarVideos = () => {
               required
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
             />
+          </div>
+
+          <div>
+            <select
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              required
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+            >
+              <option value="">Seleccionar Categoría</option>
+              <option value="Producción Musical">Producción Musical</option>
+              <option value="Dirección Musical">Dirección Musical</option>
+            </select>
           </div>
 
           <button

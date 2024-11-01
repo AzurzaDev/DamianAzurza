@@ -1,0 +1,19 @@
+.less-margin {
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .reduced-gap {
+    margin-top: 16px; /* Ajusta el valor según el espacio que prefieras */
+    margin-bottom: 16px;
+  }
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+    grid-auto-rows: minmax(100px, auto); /* Las filas se ajustarán automáticamente */
+    gap: 8px; /* Espacio entre todas las imágenes */
+  }
+  
+  .photo-gallery .wide-image {
+    grid-row: span 2; /* Las imágenes más altas ocuparán 2 filas */
+  }
+  

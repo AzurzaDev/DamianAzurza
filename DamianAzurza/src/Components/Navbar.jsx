@@ -36,14 +36,14 @@ const Navbar = () => {
           <a href="#shows" className="text-gray-800 text-xl font-semibold hover:underline">
             Shows
           </a>
-          <a href="#" className="text-gray-800 text-xl font-semibold hover:underline">
+          <a href="#proyectos" className="text-gray-800 text-xl font-semibold hover:underline">
             Proyectos
           </a>
           <a href="#servicios" className="text-gray-800 text-xl font-semibold hover:underline">
             Servicios
           </a>
           <a href="#bio" className="text-gray-800 text-xl font-semibold hover:underline">
-            Bio
+            Sobre mi
           </a>
           <a href="#contacto" className="text-gray-800 text-xl font-semibold hover:underline">
             Contacto

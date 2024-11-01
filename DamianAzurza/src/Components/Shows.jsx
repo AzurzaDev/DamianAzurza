@@ -57,9 +57,11 @@ const Shows = () => {
     return <p className="text-center text-red-500">{error}</p>;
   }
 
+  const sortedShows = [...shows].sort((a, b) => new Date(a.date) - new Date(b.date));
+
   const indexOfLastShow = currentPage * itemsPerPage;
   const indexOfFirstShow = indexOfLastShow - itemsPerPage;
-  const currentShows = shows.slice(indexOfFirstShow, indexOfLastShow);
+  const currentShows = sortedShows.slice(indexOfFirstShow, indexOfLastShow);
 
   return (
     <div id="shows">

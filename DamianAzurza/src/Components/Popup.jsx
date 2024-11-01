@@ -38,7 +38,7 @@ const Popup = ({ show, onClose }) => {
                     <p className="text-gray-600 font-Montserrat">{show.city}</p>
                     {/* Botón de reserva */}
                     <div className="flex justify-end text-center mt-4">
-                        <a href="https://www.instagram.com/damian_azurza" className="px-4 py-2 font-Montserrat bg-boton text-white rounded hover:bg-gray-600 w-full">
+                        <a href={show.src} className="px-4 py-2 font-Montserrat bg-boton text-white rounded hover:bg-gray-600 w-full">
                             Reservar
                         </a>
                     </div>

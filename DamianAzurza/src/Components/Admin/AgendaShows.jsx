@@ -16,6 +16,7 @@ const AgendaShows = () => {
   const [direccion, setDireccion] = useState('');
   const [date, setDate] = useState('');
   const [city, setCity] = useState('');
+  const [src, setSrc] = useState('');
   const [editingShowId, setEditingShowId] = useState(null); // Estado para identificar si se está editando un show
 
   useEffect(() => {
@@ -37,6 +38,7 @@ const AgendaShows = () => {
       description,
       date,
       city,
+      src,
     };
 
     if (editingShowId) {
@@ -55,6 +57,7 @@ const AgendaShows = () => {
     setDescription('');
     setDate('');
     setCity('');
+    setSrc(''),
     setImages([]);
   };
 
@@ -65,6 +68,7 @@ const AgendaShows = () => {
     setDescription(show.description);
     setDate(show.date);
     setCity(show.city);
+    setSrc(show.src);
     setImages(show.images || []); 
     setEditingShowId(show.idShow); 
   };
@@ -130,6 +134,16 @@ const AgendaShows = () => {
               className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
             />
           </div>
+          <div>
+            <input 
+              type="text" 
+              placeholder="Url del lugar" 
+              value={src} 
+              onChange={(e) => setSrc(e.target.value)} 
+              required 
+              className="w-full p-2 border border-gray-300 rounded focus:outline-none focus:ring focus:ring-blue-500"
+            />
+          </div>
           
           <button 
             type="button" 
@@ -160,6 +174,7 @@ const AgendaShows = () => {
               <p>Dirección: {show.direccion}</p>
               <p>Descripción: {show.description}</p>
               <p>Ciudad: {show.city}</p>
+              <p>Url: {show.src}</p>
               <p>Fecha: {show.date}</p>
               {/* Botón de edición */}
               <button 

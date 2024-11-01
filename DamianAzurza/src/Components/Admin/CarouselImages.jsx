@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NavBar from '../Navbar';
 import { openCloudinaryWidget } from '../../cloudinaryConfig'; 
-import { Link, useNavigate} from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CarouselImages = () => {
   const [title, setTitle] = useState('');
@@ -11,7 +11,14 @@ const CarouselImages = () => {
   const [carouselImages, setCarouselImages] = useState([]);
   const navigate = useNavigate();
 
-  
+  const routeOptions = [
+    { label: 'Contacto', value: '#contacto' },
+    { label: 'Fotos', value: '/fotos' },
+    { label: 'Shows', value: '#shows' },
+    { label: 'YouTube', value: 'https://youtube.com/@damianazurza' },
+    { label: 'Instagram', value: 'https://www.instagram.com/damian_azurza' }
+  ];
+
   useEffect(() => {
     const fetchCarouselImages = async () => {
       try {
@@ -21,35 +28,14 @@ const CarouselImages = () => {
         console.error('Error al obtener las imágenes del carrusel:', error);
       }
     };
-
     fetchCarouselImages();
   }, []);
 
-  useEffect(() => {
-    if (ruta) {
-      if (ruta.startsWith('http')) {
-        // Abrir enlace externo en nueva pestaña
-        window.open(ruta, '_blank');
-        setRuta(''); // Limpiar el valor después de abrir
-      } else if (ruta.startsWith('#')) {
-        // Hacer scroll a la sección correspondiente
-        const element = document.querySelector(ruta);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      } else {
-        // Navegar a rutas internas
-        navigate(ruta);
-      }
-    }
-  }, [ruta, navigate]);
-
   const handleImageUpload = () => {
     openCloudinaryWidget((uploadedImage) => {
-      // `uploadedImage` es la URL de la imagen subida
       const formData = new FormData();
-      formData.append('file', uploadedImage); // Asegúrate de que esta variable contenga la imagen
-      formData.append('upload_preset', 'Desarrollo'); // Tu upload_preset
+      formData.append('file', uploadedImage); 
+      formData.append('upload_preset', 'Desarrollo');
 
       axios.post('https://api.cloudinary.com/v1_1/dixhywv86/image/upload', formData)
         .then(response => {
@@ -59,21 +45,18 @@ const CarouselImages = () => {
             ruta,
             imageUrl: response.data.secure_url,
           };
-
-          
           return axios.post('/carousel', carouselData);
         })
         .then(() => {
-          
           setTitle('');
           setDescription('');
           setRuta('');
-
-         
           return axios.get('/carousel');
         })
         .then((updatedImages) => {
           setCarouselImages(updatedImages.data);
+
+         
         })
         .catch(error => {
           console.error('Error al subir la imagen', error);
@@ -84,22 +67,18 @@ const CarouselImages = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`/carousel/${id}`);
-      // Eliminar la imagen del estado local
       setCarouselImages((prevImages) => prevImages.filter((image) => image.id !== id));
     } catch (error) {
       console.error('Error al eliminar la imagen:', error);
     }
   };
- 
-  
-
 
   return (
     <div className="container mx-auto p-4 mt-10">
       <div className='fixed top-0 left-0 z-50 w-full'>
         <NavBar />
       </div>
-      <h1 className="bg-fondoServicios text-2xl font-bold font-Montserrat p-2 text-gray-200 mb-8 mt-28">Cargar Imagenes para Carrusel Principal</h1>
+      <h1 className="bg-fondoServicios text-2xl font-bold font-Montserrat p-2 text-gray-200 mb-8 mt-28">Cargar Imágenes para Carrusel Principal</h1>
       <form onSubmit={(e) => { e.preventDefault(); handleImageUpload(); }}>
         <div className="mb-4">
           <label htmlFor="title" className="block text-sm font-medium text-gray-700">Título</label>
@@ -131,11 +110,9 @@ const CarouselImages = () => {
             className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm"
           >
             <option value="">Seleccione una Ruta</option>
-            <option value="#contacto">Contacto</option>
-            <option value="/fotos">Fotos</option>
-            <option value="#shows">Shows</option>
-            <option value="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d">YouTube</option>
-            <option value="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==">Instagram</option>
+            {routeOptions.map(option => (
+              <option key={option.value} value={option.value}>{option.label}</option>
+            ))}
           </select>
         </div>
         <button 
@@ -150,7 +127,6 @@ const CarouselImages = () => {
         </Link>
       </form>
 
-      {/* Mostrar imágenes del carrusel */}
       <div className="mt-8">
         <h3 className="text-lg font-semibold mb-4">Imágenes Cargadas</h3>
         <div className="grid grid-cols-2 gap-4">
