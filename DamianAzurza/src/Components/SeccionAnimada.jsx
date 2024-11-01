@@ -108,7 +108,7 @@ const SeccionAnimada = () => {
       {/* Sección de texto */}
       <div className="flex flex-col items-center justify-center text-white text-center mt-8 md:mt-0 md:ml-16 w-full md:w-1/3">
         <h2 className="text-3xl font-bold">Qué hago</h2>
-        <p className="mt-4 text-gray-300 text-lg">
+        <p className="mt-4 text-gray-300 text-lg justify-center">
           Lorem ipsum dolor sit amet consectetur. Purus dui.
           Lorem ipsum dolor sit amet consectetur. Purus dui.
         </p>

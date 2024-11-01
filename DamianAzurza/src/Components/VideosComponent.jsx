@@ -59,7 +59,7 @@ const VideosComponent = () => {
       <img
         src={videoCards[0].image}
         alt={videoCards[0].title}
-        className="rounded-3xl shadow-lg w-full h-full object-cover"
+       className="rounded-3xl shadow-xl border-r-4 border-b-4  border-gray-600 w-full h-full object-cover"
       />
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between p-4">
         <h3 className="text-fondoClaro text-4xl md:text-6xl text-right mr-4 md:mr-16 mt-4 md:mt-16 font-Montserrat font-bold">
@@ -85,7 +85,7 @@ const VideosComponent = () => {
       <img
         src={videoCards[1].image}
         alt={videoCards[1].title}
-        className="rounded-3xl shadow-lg w-full h-full object-cover"
+        className="rounded-3xl shadow-xl border-r-4 border-b-4  border-gray-600 w-full h-full object-cover"
       />
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between p-4">
         <h3 className="text-fondoClaro text-2xl md:text-4xl text-right mr-4 md:mr-16 mt-4 md:mt-8 font-Montserrat font-bold">
@@ -112,7 +112,7 @@ const VideosComponent = () => {
       <img
         src={videoCards[2].image}
         alt={videoCards[2].title}
-        className="rounded-3xl shadow-lg w-full h-full object-cover"
+        className="rounded-3xl shadow-xl border-r-4 border-b-4  border-gray-600 w-full h-full object-cover"
       />
       <div className="absolute top-0 left-0 w-full h-full flex flex-col justify-between p-4">
         <h3 className="text-fondoClaro text-2xl md:text-4xl text-right mr-4 md:mr-16 mt-4 md:mt-8 font-Montserrat font-bold">
