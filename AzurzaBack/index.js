@@ -4,7 +4,7 @@ const { PORT } = require('./src/config/envs');// Importa las variables de entorn
 require('dotenv').config();                   // Carga las variables de entorno
 
 // Sincronización de los modelos y levantar el servidor
-conn.sync({ force: true }).then(() => {       // 'alter: true' actualiza la estructura de tablas sin borrar datos
+conn.sync({ alter: true }).then(() => {       // 'alter: true' actualiza la estructura de tablas sin borrar datos
   app.listen(PORT, () => {
     console.log(`🚀 Servidor escuchando en el puerto: ${PORT} 🚀`);
   });
