@@ -2,19 +2,23 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FaFacebookSquare, FaYoutube } from 'react-icons/fa';
 import { PiInstagramLogoFill } from "react-icons/pi";
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import logo from '../assets/logoNavbar.png';
 
 const VideoGallery = () => {
   const [videos, setVideos] = useState([]);
   const [filteredVideos, setFilteredVideos] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+
+  // Obtén el parámetro de categoría desde la URL
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const urlCategory = searchParams.get('category') || '';
 
   useEffect(() => {
     // Fetch videos from backend
-    axios.get('/videos') 
+    axios.get('/videos')
       .then((response) => {
         setVideos(response.data);
         setFilteredVideos(response.data);
@@ -23,16 +27,16 @@ const VideoGallery = () => {
   }, []);
 
   useEffect(() => {
-    // Filter videos based on selected artist and category
+    // Filter videos based on selected artist and category from URL
     let filtered = videos;
     if (selectedArtist) {
       filtered = filtered.filter((video) => video.artista === selectedArtist);
     }
-    if (selectedCategory) {
-      filtered = filtered.filter((video) => video.category === selectedCategory);
+    if (urlCategory) {
+      filtered = filtered.filter((video) => video.category === urlCategory);
     }
     setFilteredVideos(filtered);
-  }, [selectedArtist, selectedCategory, videos]);
+  }, [selectedArtist, urlCategory, videos]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -45,7 +49,7 @@ const VideoGallery = () => {
   };
 
   // Set the title based on category selection
-  const pageTitle = selectedCategory || selectedArtist || "Producción Musical / Dirección Musical";
+  const pageTitle = urlCategory || selectedArtist || "Producción Musical / Dirección Musical";
 
   return (
     <div className="flex h-screen">
@@ -56,38 +60,24 @@ const VideoGallery = () => {
           <Link to="/" className="text-2xl font-semibold font-Montserrat text-boton mb-4">Inicio</Link>
           <img src={logo} alt="Logo" className="h-12 w-auto mb-4 block md:hidden" />
           <ul className="mb-4 space-y-2">
-            <li onClick={() => { setSelectedArtist(''); setSelectedCategory(''); }} className="cursor-pointer font-Montserrat hover:text-blue-500">Todos</li>
+            <li onClick={() => { setSelectedArtist(''); }} className="cursor-pointer font-Montserrat hover:text-blue-500">Todos</li>
 
             {/* Artists Filter */}
             {[...new Set(videos.map((video) => video.artista))].map((artist) => (
               <li
                 key={artist}
-                onClick={() => { setSelectedArtist(artist); setSelectedCategory(''); }}
+                onClick={() => { setSelectedArtist(artist); }}
                 className={`cursor-pointer font-Montserrat hover:text-blue-500 ${selectedArtist === artist ? 'font-bold' : ''}`}
               >
                 {artist}
               </li>
             ))}
-
-            {/* Category Filter */}
-            <li
-              onClick={() => { setSelectedCategory('Producción Musical'); setSelectedArtist(''); }}
-              className={`cursor-pointer font-Montserrat hover:text-blue-500 ${selectedCategory === 'Producción Musical' ? 'font-bold' : ''}`}
-            >
-              Producción Musical
-            </li>
-            <li
-              onClick={() => { setSelectedCategory('Dirección Musical'); setSelectedArtist(''); }}
-              className={`cursor-pointer font-Montserrat hover:text-blue-500 ${selectedCategory === 'Dirección Musical' ? 'font-bold' : ''}`}
-            >
-              Dirección Musical
-            </li>
           </ul>
           <div className="flex space-x-2">
             <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==" className="text-gray-600 hover:text-gray-800">
               <PiInstagramLogoFill size={24} />
             </a>
-            <a href="https://www.youtube.com/redirect?event=channel_header&redir_token=QUFFLUhqblVVcnZjQW9HcnRsZ1pfZ1dsUnc2NTdwUlhLQXxBQ3Jtc0trbVdHQmQ0c2JPdzBGdkt4bi13UFZhOFNBbDNPUHgtVUhtVDlSa0RnbTlKUi1tYW52WXVwMmVtYTVUWXZzTFQzbFFFdGE4M1BHX3ZuV2l5QVZJV1BfejBMeWc0anAyam9xZ3VWOFJHN0pWTVMzNDBiSQ&q=https%3A%2F%2Fwww.facebook.com%2Fdamianazurzamusician" className="text-gray-600 hover:text-gray-800">
+            <a href="https://www.facebook.com/damianazurzamusician" className="text-gray-600 hover:text-gray-800">
               <FaFacebookSquare size={24} />
             </a>
             <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" className="text-gray-600 hover:text-gray-800">
@@ -102,9 +92,8 @@ const VideoGallery = () => {
         {!isMenuOpen && <button onClick={toggleMenu} className="mb-4">☰</button>}
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-xl sm:text-2xl md:text-5xl font-Montserrat text-boton font-bold">{pageTitle}</h1>
-          <img src={logo} alt="Logo" className="h-16 w-auto hidden md:block" />{/* Ajusta el tamaño del logo */}
+          <img src={logo} alt="Logo" className="h-16 w-auto hidden md:block" />
         </div>
-
 
         {/* Display message if no videos are available */}
         {filteredVideos.length === 0 ? (

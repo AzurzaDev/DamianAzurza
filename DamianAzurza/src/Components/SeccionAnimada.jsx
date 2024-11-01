@@ -52,7 +52,7 @@ const SeccionAnimada = () => {
       <div className="grid grid-cols-2 grid-rows-2 gap-4 w-full md:w-2/3 px-4 h-full">
         {/* Imagen 1 (más vertical) */}
         <div className="relative h-full md:h-[70vh] row-span-2 overflow-hidden rounded-2xl shadow-lg">
-          <Link to="/videos">
+         
             <img
               src={imageIndex1 === 0 ? images[0].src1 : images[0].src2}
               alt={images[0].title}
@@ -61,7 +61,7 @@ const SeccionAnimada = () => {
             <span className="absolute inset-0 flex items-center justify-center text-white text-lg font-bold z-10 text-center">
               {images[0].title}
             </span>
-          </Link>
+          
         </div>
 
         {/* Imagen 2 */}
@@ -78,6 +78,7 @@ const SeccionAnimada = () => {
 
         {/* Imagen 3 (más vertical) */}
         <div className="relative h-full md:h-[70vh] row-span-2 overflow-hidden rounded-2xl shadow-lg">
+        <Link to={`/videos?category=${images[2].title}`}>
           <img
             src={imageIndex3 === 0 ? images[2].src1 : images[2].src2}
             alt={images[2].title}
@@ -86,11 +87,12 @@ const SeccionAnimada = () => {
           <span className="absolute inset-0 flex items-center justify-center text-white text-lg font-bold z-10 text-center">
             {images[2].title}
           </span>
+          </Link>
         </div>
 
         {/* Imagen 4 */}
         <div className="relative h-48 md:h-[35vh] overflow-hidden rounded-2xl shadow-lg">
-          <Link to="/videos">
+          <Link to={`/videos?category=${images[3].title}`}>
             <img
               src={imageIndex4 === 0 ? images[3].src1 : images[3].src2}
               alt={images[3].title}
