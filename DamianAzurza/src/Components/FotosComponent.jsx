@@ -44,10 +44,10 @@ const FotosComponent = () => {
           className="w-full h-full object-cover rounded-3xl"
         />
         {/* Botón sobre la tercera imagen */}
-        <div className="absolute bottom-4 md:bottom-28 right-4 md:right-40">
+        <div className="absolute inset-0 flex items-center justify-end pr-4 md:pr-10">
           <button
             onClick={handleButtonClick}
-            className="border-2  text-white font-semibold font-Montserrat py-2 px-4  text-sm md:text-2xl rounded-full"
+            className="border-2 text-white font-semibold font-Montserrat py-2 px-4 text-sm md:text-2xl rounded-full"
           >
             Ver más fotos
           </button>

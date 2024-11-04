@@ -9,12 +9,13 @@ const EscuchaMiMusica = () => {
   const carouselRef = useRef(null);
   let touchStartX = useRef(0);
 
+  // Temporizador para avanzar automáticamente
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 3000); 
+    }, 3000); // Cambia cada 3 segundos
 
-    return () => clearInterval(interval);
+    return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
   }, [images.length]);
 
   useEffect(() => {
@@ -74,21 +75,18 @@ const EscuchaMiMusica = () => {
   }, []);
 
   return (
-    <div
-      id="inicio"
-      ref={carouselRef}
-      className="relative w-full h-screen sm:h-full md:h-screen overflow-hidden flex justify-center items-center"
-    >
+    <div id="inicio" ref={carouselRef} className="relative w-full h-screen overflow-hidden flex justify-center items-center">
       {images.length > 0 && (
         <>
-          <div className="w-full h-full transition-opacity duration-1000 ease-in-out">
+          <div className="w-full h-full transition-opacity duration-1000 ease-in-out" style={{ opacity: 1 }}>
             <img
-              src={images[currentIndex].src}
+              src={images[currentIndex].src} // Usa el campo 'src'
               alt={`Slide ${currentIndex}`}
-              className="w-full h-full object-cover md:object-contain lg:object-cover"
+              className="w-full h-full object-cover"
             />
           </div>
 
+          {/* Botón para anterior */}
           <button
             onClick={goToPrevious}
             className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 p-2 text-3xl sm:text-4xl text-white bg-gray-700 rounded-full hover:bg-gray-800 focus:outline-none focus:ring"
@@ -96,6 +94,7 @@ const EscuchaMiMusica = () => {
             <BsFillArrowLeftCircleFill />
           </button>
 
+          {/* Botón para siguiente */}
           <button
             onClick={goToNext}
             className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 p-2 text-3xl sm:text-4xl text-white bg-gray-700 rounded-full hover:bg-gray-800 focus:outline-none focus:ring"
@@ -103,17 +102,21 @@ const EscuchaMiMusica = () => {
             <BsFillArrowRightCircleFill />
           </button>
 
+          {/* Título y botón para la ruta en el centro derecho */}
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 mr-4 mt-16">
             <a
-              href={images[currentIndex].ruta}
-              className="flex items-center bg-fondoServicios text-white px-10 py-2 font-Montserrat rounded-lg text-2xl hover:bg-gray-600"
+              href={images[currentIndex].ruta} // Asegúrate de que 'ruta' sea la URL completa
+              className=" flex items-center bg-fondoServicios text-white px-10 py-2 font-Montserrat  rounded-lg text-2xl hover:bg-gray-600"
               target={images[currentIndex].ruta && images[currentIndex].ruta.startsWith('http') ? "_blank" : "_self"}
               rel="noopener noreferrer"
+              
             >
+               
               {images[currentIndex].title} <FaPlayCircle className="ml-2 text-lg" /> 
             </a>
           </div>
 
+          {/* Indicadores de imágenes */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
             {images.map((_, index) => (
               <span

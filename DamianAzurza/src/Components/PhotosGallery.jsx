@@ -56,12 +56,12 @@ const PhotosGallery = () => {
           className="w-full h-auto object-cover"
         />
         <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="absolute top-0 left-0 md:left-28 w-full h-full flex items-center justify-between px-4 max-w-screen-xl mx-auto">
+        <div className="absolute top-0 w-full h-full flex items-center justify-between px-4 max-w-screen-xl mx-auto redes-sociales">
           <Link to="/">
             <img src="LogoNavbar.png" alt="Logo" className="w-10 h-10 md:w-24 md:h-24" />
           </Link>
           <h1 className="text-center font-Montserrat font-semibold text-white text-2xl md:text-5xl">Fotos</h1>
-          <div className="flex space-x-2 md:space-x-4 ">
+          <div className="flex space-x-2 md:space-x-4 lg:justify-end ">
             <a href="https://www.facebook.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
               <FaFacebookF size={20} />
             </a>
@@ -73,6 +73,7 @@ const PhotosGallery = () => {
             </a>
           </div>
         </div>
+
       </div>
 
       <div className="container mx-auto px-4 py-8">
