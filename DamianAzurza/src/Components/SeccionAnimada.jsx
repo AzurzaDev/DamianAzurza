@@ -47,7 +47,7 @@ const SeccionAnimada = () => {
   }, []);
 
   return (
-    <div id="proyectos" className="w-full min-h-screen bg-black flex flex-col md:flex-row justify-center items-center relative py-12">
+    <div id="proyectos" className="w-full min-h-full bg-black flex flex-col md:flex-row justify-center items-center relative py-12">
       {/* Contenedor en CSS Grid para alinear las imágenes */}
       <div className="grid grid-cols-2 gap-6 w-full md:w-2/3 px-4 h-full">
         {/* Primera columna */}
@@ -112,8 +112,8 @@ const SeccionAnimada = () => {
 
       {/* Sección de texto */}
       <div className="flex flex-col items-start px-10 justify-center text-white text-center mt-8 md:mt-0 md:ml-16 w-full md:w-1/3">
-        <h2 className="text-3xl font-bold text-start px-20">Qué hago</h2>
-        <p className="mt-4 text-gray-300 text-lg leading-relaxed max-w-xl md:px-20 px-10 text-start">
+        <h2 className="text-3xl font-bold font-Montserrat text-start px-20">Qué hago</h2>
+        <p className="mt-4 text-gray-300 text-lg md:text-2xl font-Montserrat leading-relaxed max-w-xl md:px-16 px-10 text-start">
         Desde hace 28 años, vivo y respiro música. A lo largo de este tiempo, he tenido el privilegio de trabajar con más de 300 artistas; tocar en los escenarios más íntimos, como así también en los teatros y escenarios más imponentes. He realizado giras y compartido momentos con reconocidos artistas, llevando mi música por Argentina, Uruguay y España. He creado jingles radiales, dirigido y producido musicales como así también a otros artistas. 
         Ya sea en banda, en dúo o en solitario, mi meta es siempre dar lo mejor y seguir así superándome. Cada encuentro con otro soñador de la música es el comienzo de un nuevo capítulo de aventuras por escribir. La música recorre cada fibra de mi ser; sin ella, simplemente no sería yo.
         </p>

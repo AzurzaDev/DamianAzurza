@@ -1,4 +1,4 @@
-import { FiInstagram, FiYoutube, FiFacebook } from "react-icons/fi";
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,7 +6,6 @@ import { motion } from 'framer-motion';
 import navbar2 from "../assets/otroSlider.png";
 import Modal from 'react-modal';
 import './PhotoGallery.css';
-
 
 const PhotosGallery = () => {
   const [visibleImages, setVisibleImages] = useState([]);
@@ -50,76 +49,74 @@ const PhotosGallery = () => {
 
   return (
     <div className="bg-white">
-<div className="relative w-full">
-  <img
-    src={navbar2}
-    alt="Banner"
-    className="w-full h-auto object-cover"
-  />
-  <div className="absolute inset-0 bg-black opacity-50"></div>
-  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-between p-4 max-w-screen-xl mx-auto">
-    <Link to="/">
-      <img src="LogoNavbar.png" alt="Logo" className="w-40 h-40 sm:w-82 sm:h-8 md:w-8 md:h-8" />
-    </Link>
-    {/* Iconos de redes sociales a la derecha */}
-    <div className="flex space-x-4 text-white mr-6 mt-9   ">
-      <a href="#" aria-label="Instagram"><FiInstagram size={30} /></a>
-      <a href="#" aria-label="YouTube"><FiYoutube size={30} /></a>
-      <a href="#" aria-label="Facebook"><FiFacebook size={30} /></a>
-    </div>
-  </div>
-</div>
-
-
-  <div className="container mx-auto px-4 py-8">
-    <div className="photo-gallery container mx-auto px-4 py-8">
-      {visibleImages.map((image, index) => (
-        <motion.div
-          key={index}
-          className={`relative w-full h-auto cursor-pointer ${
-            index % 4 === 0 || index % 4 === 2 ? 'wide-image' : ''
-          }`}
-          onClick={() => openModal(index)}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: index * 0.1 }}
-        >
-          <img
-            src={image}
-            alt={`Image ${index + 1}`}
-            className="w-full h-full object-cover rounded-md"
-          />
-        </motion.div>
-      ))}
-    </div>
-  </div>
-
-  {selectedImage !== null && (
-    <Modal
-      isOpen={selectedImage !== null}
-      onRequestClose={closeModal}
-      contentLabel="Imagen seleccionada"
-      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
-      overlayClassName="Overlay"
-      ariaHideApp={false}
-    >
-      <div className="relative" onClick={closeModal}>
-        <button onClick={closeModal} className="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
-        <img src={allImages[selectedImage]} alt={`Image ${selectedImage + 1}`} className="max-h-screen max-w-full object-contain" onClick={(e) => e.stopPropagation()} />
-        <div className="absolute inset-0 flex items-center justify-between px-4">
-          <button onClick={(e) => { e.stopPropagation(); prevImage(); }} className="text-white text-3xl">&#10094;</button>
-          <button onClick={(e) => { e.stopPropagation(); nextImage(); }} className="text-white text-3xl">&#10095;</button>
+      <div className="relative w-full">
+        <img
+          src={navbar2}
+          alt="Banner"
+          className="w-full h-auto object-cover"
+        />
+        <div className="absolute inset-0 bg-black opacity-50"></div>
+        <div className="absolute top-0 left-0 md:left-28 w-full h-full flex items-center justify-between px-4 max-w-screen-xl mx-auto">
+          <Link to="/">
+            <img src="LogoNavbar.png" alt="Logo" className="w-10 h-10 md:w-24 md:h-24" />
+          </Link>
+          <h1 className="text-center font-Montserrat font-semibold text-white text-2xl md:text-5xl">Fotos</h1>
+          <div className="flex space-x-2 md:space-x-4 ">
+            <a href="https://www.facebook.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+              <FaFacebookF size={20} />
+            </a>
+            <a href="https://www.instagram.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+              <FaInstagram size={20} />
+            </a>
+            <a href="https://youtube.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+              <FaYoutube size={20} />
+            </a>
+          </div>
         </div>
       </div>
-    </Modal>
-  )}
-</div>
 
+      <div className="container mx-auto px-4 py-8">
+        <div className="photo-gallery container mx-auto px-4 py-8">
+          {visibleImages.map((image, index) => (
+            <motion.div
+              key={index}
+              className={`relative w-full h-auto cursor-pointer ${index % 4 === 0 || index % 4 === 2 ? 'wide-image' : ''}`}
+              onClick={() => openModal(index)}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <img
+                src={image}
+                alt={`Image ${index + 1}`}
+                className="w-full h-full object-cover rounded-md"
+              />
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {selectedImage !== null && (
+        <Modal
+          isOpen={selectedImage !== null}
+          onRequestClose={closeModal}
+          contentLabel="Imagen seleccionada"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75"
+          overlayClassName="Overlay"
+          ariaHideApp={false}
+        >
+          <div className="relative" onClick={closeModal}>
+            <button onClick={closeModal} className="absolute top-2 right-2 text-white text-3xl font-bold">&times;</button>
+            <img src={allImages[selectedImage]} alt={`Image ${selectedImage + 1}`} className="max-h-screen max-w-full object-contain" onClick={(e) => e.stopPropagation()} />
+            <div className="absolute inset-0 flex items-center justify-between px-4">
+              <button onClick={(e) => { e.stopPropagation(); prevImage(); }} className="text-white text-3xl">&#10094;</button>
+              <button onClick={(e) => { e.stopPropagation(); nextImage(); }} className="text-white text-3xl">&#10095;</button>
+            </div>
+          </div>
+        </Modal>
+      )}
+    </div>
   );
 };
 
 export default PhotosGallery;
-
-
-
-
