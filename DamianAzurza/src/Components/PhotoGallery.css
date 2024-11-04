@@ -16,4 +16,10 @@
   .photo-gallery .wide-image {
     grid-row: span 2; /* Las imágenes más altas ocuparán 2 filas */
   }
-  
+  @media (min-width: 900px) and (max-width: 1500px) {
+    .redes-sociales {
+      margin-right: 0px;
+      justify-content: center;
+      
+    }
+  }
