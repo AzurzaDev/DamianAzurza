@@ -112,15 +112,20 @@ const Navbar = () => {
             </a>
             <div className="flex space-x-4">
               <a href="#" className="text-fondoServicios hover:text-gray-800">
-                <FiFacebook size={24} />
+                <FaFacebookSquare size={24} />
               </a>
               <a href="#" className="text-fondoServicios hover:text-gray-800">
-                <FiInstagram size={24} />
+                <PiInstagramLogoFill size={24} />
               </a>
               <a href="#" className="text-fondoServicios hover:text-gray-800">
-                <FiYoutube size={24} />
+              <FaYoutube size={24} />
               </a>
+              
             </div>
+            <button onClick={() => navigate("/login")} className="bg-boton text-white text-base py-1 px-2 rounded-md flex items-center ">
+            <span>Ingresar</span>
+            <IoPersonSharp />
+          </button>
           </div>
         </div>
       )}
