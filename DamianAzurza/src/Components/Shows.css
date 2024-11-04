@@ -1,0 +1,31 @@
+/* Color personalizado para flechas */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #A0A0A0; /* Gris */
+}
+
+/* Separación de flechas con las tarjetas */
+.swiper-button-next, 
+.swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0 15px; /* Ajusta el margen para la separación */
+}
+
+/* Color personalizado para los puntos de paginación */
+.swiper-pagination-bullet {
+  background-color: #404040; /* Gris oscuro para puntos no seleccionados */
+  opacity: 0.5;
+}
+
+/* Color del punto activo */
+.swiper-pagination-bullet-active {
+  background-color: #A0A0A0; /* Gris claro para el punto activo */
+}
+
+/* Asegurarse que el contenido no se desborde */
+#shows {
+  overflow: hidden;
+}
+
+  

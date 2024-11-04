@@ -2,14 +2,20 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FaRegCalendarCheck } from "react-icons/fa";
 import { getAllShows } from "../redux/Actions/actions";
-import Pagination from "../utils/Pagination";
 import ImagenDebajoCarrousel from "../Components/ImagenDebajoCarrousel";
 import Popup from "../Components/Popup";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { Navigation, Pagination } from "swiper/modules";
+import "./Shows.css";
+
 const formatDate = (dateString) => {
-  const options = { weekday: 'long', day: 'numeric', month: 'long' };
+  const options = { weekday: "long", day: "numeric", month: "long" };
   const date = new Date(dateString);
-  return new Intl.DateTimeFormat('es-ES', options).format(date);
+  return new Intl.DateTimeFormat("es-ES", options).format(date);
 };
 
 const Shows = () => {
@@ -18,35 +24,18 @@ const Shows = () => {
   const loading = useSelector((state) => state.loading);
   const error = useSelector((state) => state.error);
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [selectedShow, setSelectedShow] = useState(null); // Estado para el show seleccionado
+  const [selectedShow, setSelectedShow] = useState(null);
 
   useEffect(() => {
     dispatch(getAllShows());
   }, [dispatch]);
 
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsPerPage(1); // 1 item por página en pantallas pequeñas
-      } else {
-        setItemsPerPage(3); // 3 items por página en pantallas grandes
-      }
-    };
-
-    handleResize(); // Llama la función al cargar
-    window.addEventListener("resize", handleResize); // Añade listener
-
-    return () => window.removeEventListener("resize", handleResize); // Limpieza
-  }, []);
-
   const handleShowClick = (show) => {
-    setSelectedShow(show); // Establece el show seleccionado
+    setSelectedShow(show);
   };
 
   const closePopup = () => {
-    setSelectedShow(null); // Cierra el popup
+    setSelectedShow(null);
   };
 
   if (loading) {
@@ -57,49 +46,62 @@ const Shows = () => {
     return <p className="text-center text-red-500">{error}</p>;
   }
 
-  const sortedShows = [...shows].sort((a, b) => new Date(a.date) - new Date(b.date));
-
-  const indexOfLastShow = currentPage * itemsPerPage;
-  const indexOfFirstShow = indexOfLastShow - itemsPerPage;
-  const currentShows = sortedShows.slice(indexOfFirstShow, indexOfLastShow);
-
   return (
     <div id="shows">
       <ImagenDebajoCarrousel />
-      <div className="max-w-6xl mx-auto my-8">
-        
-        {currentShows.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {currentShows.map((show) => (
-              <div
-                key={show.idShow}
-                className="bg-white rounded-lg shadow-lg p-4 cursor-pointer"
-                onClick={() => handleShowClick(show)}
-              >
-                <img
-                  src={show.images[0]}
-                  alt={show.title}
-                  className="w-74 h-74 object-cover rounded-lg mb-2"
-                />
-                <h3 className="font-bold font-Montserrat text-lg">{show.title}</h3>
-                <p className="text-gray-600 font-Montserrat">{show.direccion}</p>
-                <p className="text-boton font-Montserrat uppercase font-bold flex items-center">
-                  <FaRegCalendarCheck className="mr-2" />
-                  {formatDate(show.date)}
-                </p>
-              </div>
+      <div className="max-w-6xl mx-auto my-12">
+        {shows.length > 0 ? (
+          <Swiper
+            modules={[Navigation, Pagination]}
+            spaceBetween={20}
+            slidesPerView={1}
+            pagination={{ clickable: true }}
+            navigation
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 4 },
+            }}
+          >
+            {shows.map((show) => (
+              <SwiperSlide key={show.idShow} className="cursor-pointer">
+                <div
+                  className="bg-white rounded-lg  h-[320px] flex flex-col justify-between md:m-4"
+                  onClick={() => handleShowClick(show)}
+                >
+                  {/* Imagen sin márgenes, ocupando todo el ancho */}
+                  <div className="w-full">
+                    <img
+                      src={show.images[0]}
+                      alt={show.title}
+                      className="w-full h-48 object-cover rounded-lg"
+                    />
+                  </div>
+                  {/* Contenedor para los textos con margen */}
+                  <div className="p-4">
+                    <h3 className="font-bold font-Montserrat text-lg overflow-hidden text-ellipsis whitespace-nowrap">
+                      {show.title}
+                    </h3>
+                    <p className="text-gray-600 font-Montserrat text-xs overflow-hidden text-ellipsis whitespace-nowrap">
+                      {show.direccion}
+                    </p>
+                    {/* Nueva estructura para la dirección y la fecha en dos columnas */}
+                    <div className="flex justify-between items-center mt-2 gap-2">
+                      <p className="text-boton font-Montserrat uppercase font-semibold text-xs flex items-center justify-end">
+                        <FaRegCalendarCheck className="mr-2 w-8 h-auto" />
+                        {formatDate(show.date)}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
             ))}
-          </div>
+          </Swiper>
         ) : (
           <p className="text-center">No hay shows disponibles</p>
         )}
-        <Pagination
-          currentPage={currentPage}
-          totalPages={Math.ceil(shows.length / itemsPerPage)}
-          onPageChange={setCurrentPage}
-        />
       </div>
-      {selectedShow && <Popup show={selectedShow} onClose={closePopup} />} {/* Renderiza el popup si hay un show seleccionado */}
+      {selectedShow && <Popup show={selectedShow} onClose={closePopup} />}
     </div>
   );
 };
