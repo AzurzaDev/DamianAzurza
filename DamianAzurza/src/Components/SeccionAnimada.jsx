@@ -106,12 +106,13 @@ const SeccionAnimada = () => {
       </div>
 
       {/* Sección de texto */}
-      <div className="flex flex-col items-center justify-center text-white text-center mt-8 md:mt-0 md:ml-16 w-full md:w-1/3">
-        <h2 className="text-3xl font-bold">Qué hago</h2>
-        <p className="mt-4 text-gray-300 text-lg justify-center">
-          Lorem ipsum dolor sit amet consectetur. Purus dui.
-          Lorem ipsum dolor sit amet consectetur. Purus dui.
-        </p>
+      <div className="flex flex-col items-start px-10 justify-center text-white text-center mt-8 md:mt-0 md:ml-16 w-full md:w-1/3">
+      <h2 className="text-3xl text-start px-20 font-bold">Qué hago</h2>
+<p className="mt-4 text-gray-300 font-Montserrat text-lg max-w-2xl mx-auto text-start leading-relaxed px-20 pb-20">
+  Ejecuto, interpreto, creo, sueño música desde hace 28 años. He tenido el placer de enriquecerme y trabajar con más de 300 artistas; tocar en los bares más pequeños y también en los teatros y escenarios más imponentes; compartir escenario con reconocidos artistas, estar de gira por Argentina, Uruguay y España. Producir diversos artistas como así también jingles radiales. En banda, duetos o de forma solista siempre aspiro a dar la mejor versión de mí y seguir así superándome. Cada encuentro con un colega o un soñador, como yo, es el comienzo de un libro de aventuras por llenar. La música recorre cada fibra de mi cuerpo y sin ella no sería yo.
+</p>
+
+
       </div>
     </div>
   );
