@@ -75,7 +75,7 @@ const Services = () => {
   }, [isSmallScreen]);
 
   return (
-    <div id="servicios">
+    <div id="servicios" className="overflow-x-hidden">
       <div className="py-16 h-56 object-contain relative">
         <img
           src={debajoDeProyectos}
@@ -99,7 +99,7 @@ const Services = () => {
                 ${activeCard === index ? `${card.color} text-white` : "bg-fondoIconos text-gray-800"} 
                 ${activeCard !== index && activeCard !== null ? "transform scale-95" : ""}`}
               style={{
-                width: activeCard === index ? "400px" : "200px", // Expande la tarjeta a 400px en hover
+                width: activeCard === index ? (isSmallScreen ? "95vw" : "400px") : "200px",
                 height: "200px", // Mantiene altura fija
                 overflow: "hidden",
                 transition: "width 1.2s ease, transform 0.3s ease", // Suaviza la transformación
