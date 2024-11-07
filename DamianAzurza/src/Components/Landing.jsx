@@ -9,6 +9,7 @@ import Contact from './Contact';
 import VideosComponent from "./VideosComponent";
 import FotosComponent from "./FotosComponent";
 import Footer from "./Footer";
+import LogoCarousel from "./LogoCarousel";
 
 
 const Landing = () => {
@@ -38,6 +39,9 @@ const Landing = () => {
        </div>
        <div className="mb-2">
          <Contact />
+       </div>
+       <div className="mb-2">
+         <LogoCarousel />
        </div>
       <Footer />
     </div>
