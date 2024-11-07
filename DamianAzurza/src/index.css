@@ -10,5 +10,37 @@
   .scrollbar-hidden::-webkit-scrollbar {
     display: none; /* Para Chrome, Safari y Opera */
   }
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
+  .animate-scroll {
+    display: flex;
+    width: 200%;
+    animation: scroll 20s linear infinite;
+  }
+  
+  .logo-image {
+    width: 96px; /* Tamaño base */
+    height: 96px;
+    object-fit: contain;
+  }
+  
+  /* Ajuste para pantallas pequeñas */
+  @media (max-width: 900px) {
+    .logo-image {
+      width: 96px; /* Mismo tamaño que en pantallas grandes */
+      height: 96px;
+    }
+  }
+  
+  
+  
+  
   
   
