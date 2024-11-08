@@ -14,7 +14,7 @@ exports.createContact = async (req, res) => {
 
     
     const newContact = await Contacto.create({ name, email, phone, isSuscripto, message });
-    await sendEmail({ name, email, phone, isSuscripto, message });
+    await sendEmail({ name, email, phone, isSuscripto, message }, true);
     res.status(201).json({ message: 'Contacto registrado con éxito', contact: newContact });
   } catch (error) {
     res.status(500).json({ message: 'Error al registrar el contacto', error: error.message });
