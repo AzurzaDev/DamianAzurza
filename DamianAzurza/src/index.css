@@ -30,6 +30,16 @@
     height: 96px;
     object-fit: contain;
   }
+
+  .fade {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  .fade.active {
+    opacity: 1;
+  }
+  
   
   /* Ajuste para pantallas pequeñas */
   @media (max-width: 900px) {
