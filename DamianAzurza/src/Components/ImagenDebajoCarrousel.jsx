@@ -6,7 +6,7 @@ const FixedImage = () => {
             <img
                 src={debajoSlider}
                 alt="Imagen Fija"
-                className="w-full h-full lg:object-fill object-cover"
+                className="w-full h-full lg:object-fill object-cover xl:h-56 xl:object-fill"
             />
         </div>
     );
