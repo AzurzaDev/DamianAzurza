@@ -13,7 +13,12 @@ import { Navigation, Pagination } from "swiper/modules";
 import "./Shows.css";
 
 const formatDate = (dateString) => {
-  const options = { weekday: "long", day: "numeric", month: "long" };
+  const options = {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    timeZone: "America/Argentina/Buenos_Aires"
+  };
   const date = new Date(dateString);
   return new Intl.DateTimeFormat("es-ES", options).format(date);
 };
@@ -38,6 +43,11 @@ const Shows = () => {
     setSelectedShow(null);
   };
 
+  // Filtrar y ordenar los shows por fecha
+  const upcomingShows = shows
+    .filter((show) => new Date(show.date) > new Date()) // Solo shows futuros
+    .sort((a, b) => new Date(a.date) - new Date(b.date)); // Ordenar por fecha ascendente
+
   if (loading) {
     return <p className="text-center">Cargando shows...</p>;
   }
@@ -50,7 +60,7 @@ const Shows = () => {
     <div id="shows">
       <ImagenDebajoCarrousel />
       <div className="max-w-6xl mx-auto my-12">
-        {shows.length > 0 ? (
+        {upcomingShows.length > 0 ? (
           <Swiper
             modules={[Navigation, Pagination]}
             spaceBetween={20}
@@ -63,13 +73,12 @@ const Shows = () => {
               1024: { slidesPerView: 4 },
             }}
           >
-            {shows.map((show) => (
+            {upcomingShows.map((show) => (
               <SwiperSlide key={show.idShow} className="cursor-pointer">
                 <div
-                  className="bg-white rounded-lg  h-[320px] flex flex-col justify-between md:m-4"
+                  className="bg-white rounded-lg h-[320px] flex flex-col justify-between md:m-4"
                   onClick={() => handleShowClick(show)}
                 >
-                  {/* Imagen sin márgenes, ocupando todo el ancho */}
                   <div className="w-full">
                     <img
                       src={show.images[0]}
@@ -77,7 +86,6 @@ const Shows = () => {
                       className="w-full h-48 object-cover rounded-lg"
                     />
                   </div>
-                  {/* Contenedor para los textos con margen */}
                   <div className="p-4">
                     <h3 className="font-bold font-Montserrat text-lg overflow-hidden text-ellipsis whitespace-nowrap">
                       {show.title}
@@ -85,7 +93,6 @@ const Shows = () => {
                     <p className="text-gray-600 font-Montserrat text-xs overflow-hidden text-ellipsis whitespace-nowrap">
                       {show.direccion}
                     </p>
-                    {/* Nueva estructura para la dirección y la fecha en dos columnas */}
                     <div className="flex justify-between items-center mt-2 gap-2">
                       <p className="text-boton font-Montserrat uppercase font-semibold text-xs flex items-center justify-end">
                         <FaRegCalendarCheck className="mr-2 w-8 h-auto" />

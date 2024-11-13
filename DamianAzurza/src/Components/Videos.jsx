@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaFacebookSquare, FaYoutube } from 'react-icons/fa';
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/LogoNavbar.png';
+import logo from '../assets/logoNavbar.png';
 
 const VideoGallery = () => {
   const [videos, setVideos] = useState([]);
@@ -16,7 +16,8 @@ const VideoGallery = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const searchParams = new URLSearchParams(location.search);
-  const urlCategory = searchParams.get('category') || '';
+  const urlCategory = (searchParams.get('category') || '').replace(/\n/g, ' ');
+
 
   useEffect(() => {
     // Obtener videos desde el backend
@@ -74,12 +75,12 @@ const VideoGallery = () => {
     if (category === 'Todos') {
       navigate('/videos'); // Limpiar la URL
     } else {
-      navigate(`/videos?category=${category}`);
+      navigate(`/videos?category=${encodeURIComponent(category)}`);
     }
   };
 
   return (
-    <div  className="flex h-screen">
+    <div className="flex h-screen">
       {/* Sidebar */}
       {isMenuOpen && (
         <div className="w-1/4 bg-gray-200 p-4 flex flex-col">
@@ -168,4 +169,3 @@ const VideoGallery = () => {
 };
 
 export default VideoGallery;
-

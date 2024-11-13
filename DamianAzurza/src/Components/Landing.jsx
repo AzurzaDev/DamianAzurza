@@ -28,7 +28,7 @@ const Landing = () => {
        <div className="mb-2">
          <Services />
        </div>
-       <div className="mb-2">
+       <div >
          <Bio />
        </div>
        <div className="">

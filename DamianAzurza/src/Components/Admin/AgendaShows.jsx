@@ -31,6 +31,13 @@ const AgendaShows = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const today = new Date().toISOString().split("T")[0];
+
+    // Validar que la fecha ingresada no esté en el pasado
+    if (date < today) {
+      alert("La fecha del show no es correcta.");
+      return;
+    }
     const showData = {
       images,
       title,
@@ -59,6 +66,7 @@ const AgendaShows = () => {
     setCity('');
     setSrc(''),
     setImages([]);
+    dispatch(getAllShows());
   };
 
   const handleEditShow = (show) => {
@@ -164,35 +172,37 @@ const AgendaShows = () => {
         </Link>
       </div>
       
-      {/* Lista de Shows creados */}
-      <div className="max-w-md mx-auto mt-8">
-        <h2 className="text-xl font-semibold mb-4 text-center">Shows Creados</h2>
-        <ul className="space-y-4">
-          {shows.map((show) => (
-            <li key={show.idShow} className="bg-white p-4 rounded shadow">
-              <h3 className="font-bold">{show.title}</h3>
-              <p>Dirección: {show.direccion}</p>
-              <p>Descripción: {show.description}</p>
-              <p>Ciudad: {show.city}</p>
-              <p>Url: {show.src}</p>
-              <p>Fecha: {show.date}</p>
-              {/* Botón de edición */}
-              <button 
-                onClick={() => handleEditShow(show)} 
-                className="mt-2 bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 transition mx-2"
-              >
-                Editar
-              </button>
-              <button 
-                onClick={() => handleDeleteShow(show.idShow)} 
-                className="mt-2 bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 transition"
-              >
-                Eliminar
-              </button>
-            </li>
-          ))}
-        </ul>
-      </div>
+ <div className="max-w-md mx-auto mt-8">
+  <h2 className="text-xl font-semibold mb-4 text-center">Shows Creados</h2>
+  <ul className="space-y-4">
+    {shows.map((show) => (
+      <li key={show.idShow} className="bg-white p-4 rounded shadow overflow-hidden">
+        <h3 className="font-bold">{show.title}</h3>
+        <p className="break-words">Dirección: {show.direccion}</p>
+        <p className="break-words">Descripción: {show.description}</p>
+        <p className="break-words">Ciudad: {show.city}</p>
+        <p className="break-words">Url: {show.src}</p>
+        <p className="break-words">Fecha: {show.date}</p>
+        
+        {/* Botón de edición */}
+        <button 
+          onClick={() => handleEditShow(show)} 
+          className="mt-2 bg-yellow-500 text-white py-1 px-2 rounded hover:bg-yellow-600 transition mx-2"
+        >
+          Editar
+        </button>
+        
+        <button 
+          onClick={() => handleDeleteShow(show.idShow)} 
+          className="mt-2 bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600 transition"
+        >
+          Eliminar
+        </button>
+      </li>
+    ))}
+  </ul>
+</div>
+
     </div>
   );
 };

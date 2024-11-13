@@ -14,8 +14,8 @@ const SeccionAnimada = () => {
   const images = [
     { src1: image1a, src2: image1b, title: "Solista", delay: 2000 },
     { src1: image2a, src2: image2b, title: "Duetos", delay: 3000 },
-    { src1: image1a, src2: image1b, title: "Producción\nMusical", delay: 4000 },
-    { src1: image2a, src2: image2b, title: "Dirección\nMusical", delay: 5000 },
+    { src1: image1a, src2: image1b, title: "Producción Musical", delay: 4000 },
+    { src1: image2a, src2: image2b, title: "Dirección Musical", delay: 5000 },
   ];
 
   useEffect(() => {
@@ -72,11 +72,11 @@ const SeccionAnimada = () => {
           <Link to={`/videos?category=${images[2].title}`}>
             <img
               src={imageIndex3 === 0 ? images[2].src1 : images[2].src2}
-              alt={images[2].title}
+              alt={images[2].title.replace(" ", "\n")}
               className="absolute w-full h-full object-cover transition-opacity duration-1000 rounded-3xl"
             />
             <span className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-semibold font-Montserrat z-1 bg-opacity-50 drop-shadow-lg whitespace-pre-wrap leading-snug text-center">
-              {images[2].title}
+              {images[2].title.replace(" ", "\n")}
             </span>
           </Link>
         </div>
@@ -101,11 +101,11 @@ const SeccionAnimada = () => {
           <Link to={`/videos?category=${images[3].title}`}>
             <img
               src={imageIndex4 === 0 ? images[3].src1 : images[3].src2}
-              alt={images[3].title}
+              alt={images[3].title.replace(" ", "\n")}
               className="absolute w-full h-full object-cover transition-opacity duration-1000 rounded-3xl"
             />
             <span className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl lg:text-4xl font-semibold font-Montserrat z-1 bg-opacity-50 drop-shadow-lg whitespace-pre-wrap leading-snug text-center">
-              {images[3].title}
+              {images[3].title.replace(" ", "\n")}
             </span>
           </Link>
         </div>
