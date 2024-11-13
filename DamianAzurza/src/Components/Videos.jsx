@@ -3,7 +3,7 @@ import axios from 'axios';
 import { FaFacebookSquare, FaYoutube } from 'react-icons/fa';
 import { PiInstagramLogoFill } from "react-icons/pi";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import logo from '../assets/logoNavbar.png';
+import logo from '../assets/LogoNavbar.png';
 
 const VideoGallery = () => {
   const [videos, setVideos] = useState([]);
