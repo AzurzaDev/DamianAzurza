@@ -75,19 +75,19 @@ const Services = () => {
   }, [isSmallScreen]);
 
   return (
-    <div id="servicios" className="overflow-x-hidden">
-      <div className="py-16 h-56 object-contain relative">
+    <div id="servicios" className="overflow-x-hidden ">
+      <div className="py-2 h-auto  object-contain relative">
         <img
           src={debajoDeProyectos}
           alt="Imagen Fija"
-          className="w-full h-full object-cover absolute top-0 left-0 opacity-20 z-0"
+          className="w-full h-auto object-cover absolute top-0  left-0 opacity-40 z-0"
         />
       </div>
-      <div className="mt-28">
-        <h2 className="text-4xl font-bold font-Montserrat text-center mb-8 text-fondoServicios z-1 relative">Servicios</h2>
-        <p className="text-center text-fondoServicios font-Montserrat font-semibold mb-12 z-1 relative">
-          Figma lorem component variant main layer. Create scrolling team bold prototype background.
-        </p>
+      <div className="mt-48 md:mt-56 sm:mt-2">
+        <h2 className="text-3xl ms:text-6xl font-bold font-Montserrat text-center mb-12 text-fondoServicios z-1 relative">Servicios</h2>
+        <p className="text-center text-lg md:text-2xl text-fondoServicios font-Montserrat  mb-12 z-1 relative">
+        Compromiso, profesionalismo, pasión y seriedad vas a encontrarte en cualquiera de mis servicios.
+        </p> 
 
         <div className="flex flex-col md:flex-row justify-center gap-8 z-1 relative">
           {cards.map((card, index) => (
