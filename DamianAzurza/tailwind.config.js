@@ -28,6 +28,7 @@ export const theme = {
     },
     fontFamily: {
         Montserrat: ['Montserrat', 'sans-serif'], // Definir la fuente Nunito
+        architects: ['Architects Daughter', 'sans-serif'],
       },
   },
 };
