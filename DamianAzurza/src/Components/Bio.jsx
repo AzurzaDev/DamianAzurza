@@ -35,7 +35,7 @@ const Bio = () => {
         <a
           href={cvPDF} // Referencia al archivo PDF
           download="Mi-CV.pdf" // Nombre del archivo cuando se descargue
-          className="absolute bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
+          className="absolute sm:p-8 bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
         >
           <FaDownload className="mr-2" /> Descargar CV
         </a>
