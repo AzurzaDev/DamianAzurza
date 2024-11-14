@@ -3,7 +3,7 @@ import Landing from "./Components/Landing";
 import Panel from "./Components/Admin/Panel";
 import AgendaShows from "./Components/Admin/AgendaShows";
 import PhotosGallery from "./Components/PhotosGallery";
-// import ProtectedRoutes from './utils/ProtectedRoutes';
+ import ProtectedRoutes from './utils/ProtectedRoutes';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';  // Asegúrate de importar los estilos
 import Login from "./Components/Admin/Login/Login";
@@ -35,49 +35,49 @@ function App() {
         <Route
           path="/panel"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <Panel />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
           <Route
           path="/panel/Images"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <CarouselImages />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
            <Route
           path="/panel/contact"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <ContactList />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
         <Route
           path="/panel/shows"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <AgendaShows />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
           <Route
           path="/panel/Fotos"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <CreateFotos />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
            <Route
           path="/panel/Videos"
           element={
-            // <ProtectedRoutes>
+             <ProtectedRoutes>
             <CargarVideos />
-            // </ProtectedRoutes>
+             </ProtectedRoutes>
           }
         />
        

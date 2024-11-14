@@ -3,6 +3,7 @@ import {
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  USER_LOGOUT,
   CREATE_CONTACT_SUCCESS,
   CREATE_CONTACT_FAIL,
   GET_ALL_CONTACTS_SUCCESS,
@@ -48,6 +49,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
+      case USER_LOGOUT:
+      return { ...state, adminInfo: null };
 
     case CREATE_CONTACT_SUCCESS:
       return {

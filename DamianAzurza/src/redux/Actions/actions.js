@@ -6,7 +6,7 @@ REGISTER_SUCCESS ,
  REGISTER_FAIL ,
  LOGIN_SUCCESS ,
  LOGIN_FAIL ,
-
+ USER_LOGOUT,
  CREATE_CONTACT_SUCCESS ,
  CREATE_CONTACT_FAIL ,
  GET_ALL_CONTACTS_SUCCESS ,
@@ -59,6 +59,13 @@ export const loginAdmin = (adminData) => async (dispatch) => {
         throw error; // Lanza el error para manejarlo en el componente
     }
 };
+export const logout = () => (dispatch) => {
+    // Limpia el estado de usuario en Redux
+    dispatch({ type: USER_LOGOUT });
+    
+    // Opcional: Elimina el token de autenticación del almacenamiento local
+    localStorage.removeItem('adminInfo');
+  };
 
 
 export const createContact = (contactData) => async (dispatch) => {
