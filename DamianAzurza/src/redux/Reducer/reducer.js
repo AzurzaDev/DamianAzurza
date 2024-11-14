@@ -22,6 +22,8 @@ import {
   DELETE_SHOW_REQUEST,
   DELETE_SHOW_SUCCESS,
   DELETE_SHOW_FAILURE,
+  DELETE_ADMIN,
+ EDIT_ADMIN,
 } from "../Actions/actions-types";
 
 const initialState = {
@@ -86,6 +88,18 @@ const rootReducer = (state = initialState, action) => {
           ...state,
           error: action.payload,
         };
+        case DELETE_ADMIN:
+          return {
+            ...state,
+            admins: state.admins.filter(admin => admin.adminId !== action.payload),
+          };
+        case EDIT_ADMIN:
+          return {
+            ...state,
+            admins: state.admins.map(admin =>
+              admin.adminId === action.payload.adminId ? action.payload : admin
+            ),
+          };
     case CREATE_SHOW_SUCCESS:
       return {
         ...state,

@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
 import {
 REGISTER_SUCCESS ,
  REGISTER_FAIL ,
@@ -13,7 +13,8 @@ REGISTER_SUCCESS ,
  GET_ALL_CONTACTS_FAIL ,
  GET_ALL_ADMINS_SUCCESS ,
  GET_ALL_ADMINS_FAIL ,
-
+ DELETE_ADMIN,
+ EDIT_ADMIN,
  CREATE_SHOW_SUCCESS ,
  CREATE_SHOW_FAIL ,
  GET_ALL_SHOWS_SUCCESS ,
@@ -191,5 +192,33 @@ export const updateShow = (idShow, updatedShowData) => async (dispatch) => {
         type: DELETE_SHOW_FAILURE,
         payload: error.response?.data?.message || 'Error al eliminar el show',
       });
+    }
+  };
+
+  // Acción para eliminar un administrador
+export const deleteAdmin = (adminId) => async (dispatch) => {
+    try {
+      const response = await axios.delete(`/auth/${adminId}`);
+      dispatch({
+        type: DELETE_ADMIN,
+        payload: response.adminId, // El ID del administrador eliminado
+      });
+      toast.success('Administrador eliminado con éxito');
+    } catch (error) {
+      toast.error('Error al eliminar administrador');
+    }
+  };
+  
+  // Acción para editar un administrador
+  export const editAdmin = (adminId, adminData) => async (dispatch) => {
+    try {
+      const response = await axios.put(`/auth/${adminId}`, adminData);
+      dispatch({
+        type: EDIT_ADMIN,
+        payload: response.data.admin, // Admin actualizado
+      });
+      toast.success('Administrador actualizado con éxito');
+    } catch (error) {
+      toast.error('Error al actualizar administrador');
     }
   };

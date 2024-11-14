@@ -4,7 +4,8 @@ import Panel from "./Components/Admin/Panel";
 import AgendaShows from "./Components/Admin/AgendaShows";
 import PhotosGallery from "./Components/PhotosGallery";
  import ProtectedRoutes from './utils/ProtectedRoutes';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+
 import 'react-toastify/dist/ReactToastify.css';  // Asegúrate de importar los estilos
 import Login from "./Components/Admin/Login/Login";
 import CarouselImages from "./Components/Admin/CarouselImages";

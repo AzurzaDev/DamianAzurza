@@ -67,3 +67,53 @@ exports.getAllAdmins = async (req, res) => {
     res.status(500).json({ message: 'Error al obtener administradores', error: error.message });
   }
 };
+
+// Editar administrador
+exports.editAdmin = async (req, res) => {
+  const { adminId } = req.params;  // ID del administrador a editar
+  const { username, password } = req.body;  // Nuevos datos del admin
+
+  try {
+    const admin = await Admin.findByPk(adminId);
+    if (!admin) {
+      return res.status(404).json({ message: 'Administrador no encontrado' });
+    }
+
+    // Si se proporciona una nueva contraseña, la hasheamos
+    let updatedPassword = admin.password;  // Mantener la contraseña actual por defecto
+    if (password) {
+      updatedPassword = await bcrypt.hash(password, 10);  // Hashear la nueva contraseña
+    }
+
+    // Actualizamos el administrador
+    const updatedAdmin = await admin.update({
+      username: username || admin.username,  // Solo actualizamos el username si se proporciona uno nuevo
+      password: updatedPassword,  // Actualizamos la contraseña si es necesario
+    });
+
+    res.status(200).json({ message: 'Administrador actualizado con éxito', admin: updatedAdmin });
+  } catch (error) {
+    console.error('Error al editar administrador:', error);
+    res.status(500).json({ message: 'Error al editar administrador', error: error.message });
+  }
+};
+
+// Eliminar administrador
+exports.deleteAdmin = async (req, res) => {
+  const { adminId } = req.params;  // ID del administrador a eliminar
+
+  try {
+    const admin = await Admin.findByPk(adminId);
+    if (!admin) {
+      return res.status(404).json({ message: 'Administrador no encontrado' });
+    }
+
+    // Eliminamos el administrador
+    await admin.destroy();
+    res.status(200).json({ message: 'Administrador eliminado con éxito' });
+  } catch (error) {
+    console.error('Error al eliminar administrador:', error);
+    res.status(500).json({ message: 'Error al eliminar administrador', error: error.message });
+  }
+};
+
