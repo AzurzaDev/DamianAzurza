@@ -32,13 +32,13 @@ const Popup = ({ show, onClose }) => {
                 </div>
                 {/* Mitad derecha con detalles y botón */}
                 <div className="w-full md:w-1/2 p-4 flex flex-col">
-                    <h2 className="text-2xl text-boton font-Montserrat font-bold">{show.title}</h2>
+                    <h2 className="text-2xl text-boton font-Montserrat font-semibold uppercase">{show.title}</h2>
                     <h4 className="text-lg text-boton mb-6 font-Montserrat font-semibold uppercase">{formatDate(show.date)}</h4>
                     <p className="text-gray-700 font-Montserrat mt-2 break-words">{show.description}</p>
                     <p className="text-gray-600 font-Montserrat mt-2">{show.city}</p>
                     {/* Botón de reserva */}
-                    <div className="flex justify-end text-center mt-4">
-                        <a href={show.src} className="px-4 py-2 font-Montserrat bg-boton text-white rounded hover:bg-gray-600 w-full">
+                    <div className="flex justify-start text-center mt-4">
+                        <a href={show.src} className="px-4 py-2 font-Montserrat bg-boton text-white  rounded hover:bg-gray-600 w-1/2">
                             Reservar
                         </a>
                     </div>
