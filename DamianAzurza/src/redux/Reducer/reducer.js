@@ -8,6 +8,8 @@ import {
   CREATE_CONTACT_FAIL,
   GET_ALL_CONTACTS_SUCCESS,
   GET_ALL_CONTACTS_FAIL,
+  GET_ALL_ADMINS_SUCCESS ,
+  GET_ALL_ADMINS_FAIL ,
   CREATE_SHOW_SUCCESS,
   CREATE_SHOW_FAIL,
   GET_ALL_SHOWS_SUCCESS,
@@ -27,6 +29,7 @@ const initialState = {
   token: null,
   contacts: [],
   contact: null,
+  admins:[],
   shows: [],
   show: null,
   loading: false,
@@ -70,6 +73,19 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
+
+      case GET_ALL_ADMINS_SUCCESS:
+        return {
+          ...state,
+          admins: action.payload,
+          error: null,
+        };
+      
+      case GET_ALL_ADMINS_FAIL:
+        return {
+          ...state,
+          error: action.payload,
+        };
     case CREATE_SHOW_SUCCESS:
       return {
         ...state,

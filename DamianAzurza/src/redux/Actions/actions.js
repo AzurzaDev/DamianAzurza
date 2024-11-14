@@ -11,6 +11,8 @@ REGISTER_SUCCESS ,
  CREATE_CONTACT_FAIL ,
  GET_ALL_CONTACTS_SUCCESS ,
  GET_ALL_CONTACTS_FAIL ,
+ GET_ALL_ADMINS_SUCCESS ,
+ GET_ALL_ADMINS_FAIL ,
 
  CREATE_SHOW_SUCCESS ,
  CREATE_SHOW_FAIL ,
@@ -94,6 +96,22 @@ export const getAllContacts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_ALL_CONTACTS_FAIL,
+            payload: error.response.data.message
+        });
+    }
+};
+
+// Acción para obtener todos los contactos
+export const getAllAdmins = () => async (dispatch) => {
+    try {
+        const response = await axios.get('/auth/admins');
+        dispatch({
+            type: GET_ALL_ADMINS_SUCCESS,
+            payload: response.data.admins,
+        });
+    } catch (error) {
+        dispatch({
+            type: GET_ALL_ADMINS_FAIL,
             payload: error.response.data.message
         });
     }

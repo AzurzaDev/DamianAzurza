@@ -49,3 +49,21 @@ exports.login = async (req, res) => {
     res.status(500).json({ message: 'Error en el inicio de sesión', error });
   }
 };
+
+exports.getAllAdmins = async (req, res) => {
+  try {
+    // Obtener todos los administradores
+    const admins = await Admin.findAll();
+    
+    // Verificar si hay administradores
+    if (admins.length === 0) {
+      return res.status(404).json({ message: 'No se encontraron administradores' });
+    }
+
+    // Devolver los administradores encontrados
+    res.status(200).json({ admins });
+  } catch (error) {
+    console.error('Error al obtener administradores:', error);
+    res.status(500).json({ message: 'Error al obtener administradores', error: error.message });
+  }
+};

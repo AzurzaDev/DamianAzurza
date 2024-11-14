@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerAdmin, getAllContacts } from '../../../redux/Actions/actions'; // Asegúrate de importar la acción para obtener los contactos
+import { registerAdmin, getAllAdmins } from '../../../redux/Actions/actions'; // Asegúrate de importar la acción
 import { FaEdit, FaTrash } from 'react-icons/fa'; // Iconos para editar y eliminar
 import { toast } from 'react-toastify'; // Usaremos toast para los mensajes de alerta
 
@@ -9,17 +9,13 @@ const RegisterAdmin = () => {
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
 
-  // Obtener todos los contactos
-  const { contacts, loading, error } = useSelector(state => state.contacts);
-  const [admins, setAdmins] = useState([]);
+  // Obtener los administradores desde el estado global de Redux
+  const admins = useSelector(state => state.admins || []);
 
-  // Filtrar los contactos con rol 'admin'
+  // Obtener todos los administradores cuando el componente se monta
   useEffect(() => {
-    if (contacts && contacts.length > 0) {
-      const filteredAdmins = contacts.filter(contact => contact.role === 'admin');
-      setAdmins(filteredAdmins);
-    }
-  }, [contacts]);
+    dispatch(getAllAdmins()); // Llamar a la acción para obtener los administradores
+  }, [dispatch]);
 
   // Acción para registrar un nuevo administrador
   const handleSubmit = async (e) => {
@@ -33,7 +29,6 @@ const RegisterAdmin = () => {
       // Mostrar alerta si el usuario fue creado correctamente
       if (response && response.payload) {
         toast.success('¡Administrador creado con éxito!');
-        setAdmins([...admins, response.payload]); // Añadir el admin creado a la lista
         setUsername('');
         setPassword('');
       }
@@ -47,7 +42,8 @@ const RegisterAdmin = () => {
   // Función para eliminar un administrador
   const handleDelete = (id) => {
     const updatedAdmins = admins.filter((admin) => admin.id !== id);
-    setAdmins(updatedAdmins);
+    // Aquí podrías despachar una acción para eliminar el admin desde el backend
+    // dispatch(deleteAdmin(id)); // Despachar acción de eliminación
   };
 
   // Función para editar un administrador (puedes expandirla según sea necesario)
