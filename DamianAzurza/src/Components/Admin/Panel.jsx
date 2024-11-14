@@ -21,6 +21,15 @@ const PanelPage = () => {
           </div>
         </Link>
         <Link
+          to="/panel/register"
+          className="bg-white font-nunito border border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:scale-105 p-6 flex items-center justify-center"
+        >
+          <div className="text-center">
+            <h2 className="text-xl font-semibold font-nunito  text-blue-500 mb-2">Crear Administrador</h2>
+            <p className="text-gray-600 font-nunito ">Administra quiene pueden ayudarte en tu web </p>
+          </div>
+        </Link>
+        <Link
           to="/panel/shows"
           className="bg-white border font-nunito  border-gray-200 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out transform hover:scale-105 p-6 flex items-center justify-center"
         >

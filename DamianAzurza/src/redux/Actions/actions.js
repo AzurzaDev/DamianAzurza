@@ -1,17 +1,20 @@
 
 import axios from 'axios';
-
+import { toast } from 'react-toastify';
 import {
 REGISTER_SUCCESS ,
  REGISTER_FAIL ,
  LOGIN_SUCCESS ,
  LOGIN_FAIL ,
-
+ USER_LOGOUT,
  CREATE_CONTACT_SUCCESS ,
  CREATE_CONTACT_FAIL ,
  GET_ALL_CONTACTS_SUCCESS ,
  GET_ALL_CONTACTS_FAIL ,
-
+ GET_ALL_ADMINS_SUCCESS ,
+ GET_ALL_ADMINS_FAIL ,
+ DELETE_ADMIN,
+ EDIT_ADMIN,
  CREATE_SHOW_SUCCESS ,
  CREATE_SHOW_FAIL ,
  GET_ALL_SHOWS_SUCCESS ,
@@ -59,6 +62,13 @@ export const loginAdmin = (adminData) => async (dispatch) => {
         throw error; // Lanza el error para manejarlo en el componente
     }
 };
+export const logout = () => (dispatch) => {
+    // Limpia el estado de usuario en Redux
+    dispatch({ type: USER_LOGOUT });
+    
+    // Opcional: Elimina el token de autenticación del almacenamiento local
+    localStorage.removeItem('adminInfo');
+  };
 
 
 export const createContact = (contactData) => async (dispatch) => {
@@ -87,6 +97,22 @@ export const getAllContacts = () => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: GET_ALL_CONTACTS_FAIL,
+            payload: error.response.data.message
+        });
+    }
+};
+
+// Acción para obtener todos los contactos
+export const getAllAdmins = () => async (dispatch) => {
+    try {
+        const response = await axios.get('/auth/admins');
+        dispatch({
+            type: GET_ALL_ADMINS_SUCCESS,
+            payload: response.data.admins,
+        });
+    } catch (error) {
+        dispatch({
+            type: GET_ALL_ADMINS_FAIL,
             payload: error.response.data.message
         });
     }
@@ -166,5 +192,33 @@ export const updateShow = (idShow, updatedShowData) => async (dispatch) => {
         type: DELETE_SHOW_FAILURE,
         payload: error.response?.data?.message || 'Error al eliminar el show',
       });
+    }
+  };
+
+  // Acción para eliminar un administrador
+export const deleteAdmin = (adminId) => async (dispatch) => {
+    try {
+      const response = await axios.delete(`/auth/${adminId}`);
+      dispatch({
+        type: DELETE_ADMIN,
+        payload: response.adminId, // El ID del administrador eliminado
+      });
+      toast.success('Administrador eliminado con éxito');
+    } catch (error) {
+      toast.error('Error al eliminar administrador');
+    }
+  };
+  
+  // Acción para editar un administrador
+  export const editAdmin = (adminId, adminData) => async (dispatch) => {
+    try {
+      const response = await axios.put(`/auth/${adminId}`, adminData);
+      dispatch({
+        type: EDIT_ADMIN,
+        payload: response.data.admin, // Admin actualizado
+      });
+      toast.success('Administrador actualizado con éxito');
+    } catch (error) {
+      toast.error('Error al actualizar administrador');
     }
   };

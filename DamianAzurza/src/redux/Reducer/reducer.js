@@ -3,10 +3,13 @@ import {
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  USER_LOGOUT,
   CREATE_CONTACT_SUCCESS,
   CREATE_CONTACT_FAIL,
   GET_ALL_CONTACTS_SUCCESS,
   GET_ALL_CONTACTS_FAIL,
+  GET_ALL_ADMINS_SUCCESS ,
+  GET_ALL_ADMINS_FAIL ,
   CREATE_SHOW_SUCCESS,
   CREATE_SHOW_FAIL,
   GET_ALL_SHOWS_SUCCESS,
@@ -19,6 +22,8 @@ import {
   DELETE_SHOW_REQUEST,
   DELETE_SHOW_SUCCESS,
   DELETE_SHOW_FAILURE,
+  DELETE_ADMIN,
+ EDIT_ADMIN,
 } from "../Actions/actions-types";
 
 const initialState = {
@@ -26,6 +31,7 @@ const initialState = {
   token: null,
   contacts: [],
   contact: null,
+  admins:[],
   shows: [],
   show: null,
   loading: false,
@@ -48,6 +54,8 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
+      case USER_LOGOUT:
+      return { ...state, adminInfo: null };
 
     case CREATE_CONTACT_SUCCESS:
       return {
@@ -67,6 +75,31 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         error: action.payload,
       };
+
+      case GET_ALL_ADMINS_SUCCESS:
+        return {
+          ...state,
+          admins: action.payload,
+          error: null,
+        };
+      
+      case GET_ALL_ADMINS_FAIL:
+        return {
+          ...state,
+          error: action.payload,
+        };
+        case DELETE_ADMIN:
+          return {
+            ...state,
+            admins: state.admins.filter(admin => admin.adminId !== action.payload),
+          };
+        case EDIT_ADMIN:
+          return {
+            ...state,
+            admins: state.admins.map(admin =>
+              admin.adminId === action.payload.adminId ? action.payload : admin
+            ),
+          };
     case CREATE_SHOW_SUCCESS:
       return {
         ...state,
