@@ -26,10 +26,11 @@
   }
   
   .logo-image {
-    width: 96px; /* Tamaño base */
+    width: 96px;
     height: 96px;
-    object-fit: contain;
   }
+  
+ 
 
   .fade {
     opacity: 0;
@@ -41,14 +42,7 @@
   }
   
   
-  /* Ajuste para pantallas pequeñas */
-  @media (max-width: 900px) {
-    .logo-image {
-      width: 96px; /* Mismo tamaño que en pantallas grandes */
-      height: 96px;
-    }
-  }
-  
+ 
   
   
   
