@@ -12,6 +12,7 @@ import ContactList from "./Components/Admin/ContactList";
 import CreateFotos from "./Components/Admin/CreateFotos";
 import CargarVideos from "./Components/Admin/CargarVideos";
 import VideoGallery from "./Components/Videos";
+import RegisterAdmin from "./Components/Admin/Login/Register";
 
 function App() {
   return (
@@ -37,6 +38,14 @@ function App() {
           element={
              <ProtectedRoutes>
             <Panel />
+             </ProtectedRoutes>
+          }
+        />
+        <Route
+          path="/panel/register"
+          element={
+             <ProtectedRoutes>
+            <RegisterAdmin />
              </ProtectedRoutes>
           }
         />
