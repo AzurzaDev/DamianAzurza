@@ -84,8 +84,8 @@ const Contact = () => {
       {/* Izquierda - Texto */}
       <div id='contacto' className="relative w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 p-8">
         <h2 className="text-3xl font-bold mb-2 text-fondoServicios font-Montserrat">Contacto</h2>
-        <p className="text-fondoServicios font-Montserrat mb-4">
-          Para contrataciones de música en vivo, producción o dirección musical.
+        <p className="text-fondoServicios font-semibold font-Montserrat mb-4">
+          Para contrataciones de música en vivo,<br></br> producción o dirección musical.
         </p>
         <p className="text-fondoServicios font-Montserrat mb-4">
           DAMIÁN AZURZA

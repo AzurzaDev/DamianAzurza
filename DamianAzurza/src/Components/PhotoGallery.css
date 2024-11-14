@@ -23,3 +23,12 @@
       
     }
   }
+  @media (max-width: 768px) {
+    .photo-gallery {
+      grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+  
+    .photo-gallery .wide-image {
+      grid-row: span 1; /* Las imágenes ocupan solo una fila en pantallas pequeñas */
+    }
+  }
