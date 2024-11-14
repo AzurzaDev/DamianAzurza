@@ -16,7 +16,7 @@ const Bio = () => {
         </div>
 
         {/* Contenedor de texto con ancho fijo */}
-        <div className="w-full md:w-full text-center md:text-left max-w-[600px] mx-auto p-4">
+        <div className="w-full md:w-full text-center md:text-left max-w-[600px] mx-auto p-4 mb-6">
           <h2 className="text-3xl md:text-5xl font-bold font-Montserrat mb-4 text-boton text-left">
             Ésta es mi Historia
           </h2>
@@ -35,7 +35,7 @@ const Bio = () => {
         <a
           href={cvPDF} // Referencia al archivo PDF
           download="Mi-CV.pdf" // Nombre del archivo cuando se descargue
-          className="absolute sm:p-8 bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
+          className="absolute my-4  bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
         >
           <FaDownload className="mr-2" /> Descargar CV
         </a>
