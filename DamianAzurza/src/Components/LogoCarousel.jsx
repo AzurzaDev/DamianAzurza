@@ -5,8 +5,8 @@ import logo2 from "../assets/LogoN.png";
 const LogoCarousel = () => {
   const logos = [logo1, logo2];
   const instagramUrls = [
-    "https://www.instagram.com/cuenta1", // URL para el primer logo
-    "https://www.instagram.com/cuenta2", // URL para el segundo logo
+    "https://www.instagram.com/hernanbaggiestilistas/", // URL para el primer logo
+    "https://www.instagram.com/dgneaguilera/", // URL para el segundo logo
   ];
 
   const [isSmallScreen, setIsSmallScreen] = useState(false);
