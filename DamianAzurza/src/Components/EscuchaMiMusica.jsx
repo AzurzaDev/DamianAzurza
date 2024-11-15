@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { FaPlayCircle } from "react-icons/fa";
 import axios from 'axios'; 
+import image1 from '../assets/azurzaMovile1.jpeg';
+import image2 from '../assets/azurzaMovile2.png';
+import image3 from '../assets/azurzaMovile3.png'
 
 const EscuchaMiMusica = () => {
   const [images, setImages] = useState([]);
@@ -77,11 +80,12 @@ const EscuchaMiMusica = () => {
 
   // Imágenes de reemplazo para pantallas pequeñas
   const defaultMobileImages = [
-    "https://i.pinimg.com/originals/c5/8f/1c/c58f1c948fa579f20eddca3590ed30fa.jpg",
-    "https://marketplace.canva.com/EAFLyOqaN8o/1/0/900w/canva-fondo-de-pantalla-para-celular-musica-minimalista-gzIedzqJDdg.jpg",
-    "http://todoimagenesde.com/wp-content/uploads/2017/04/FondoDePantalla3.jpg",
-    "https://informacionimagenes.net/wp-content/uploads/2017/02/Fondos-de-pantalla-HD-9.jpg",
-    "https://www.okchicas.com/wp-content/uploads/2019/03/Fondos-de-pantalla-para-celular-8.jpg"
+    image1, image2, image3
+    // "https://i.pinimg.com/originals/c5/8f/1c/c58f1c948fa579f20eddca3590ed30fa.jpg",
+    // "https://marketplace.canva.com/EAFLyOqaN8o/1/0/900w/canva-fondo-de-pantalla-para-celular-musica-minimalista-gzIedzqJDdg.jpg",
+    // "http://todoimagenesde.com/wp-content/uploads/2017/04/FondoDePantalla3.jpg",
+    // "https://informacionimagenes.net/wp-content/uploads/2017/02/Fondos-de-pantalla-HD-9.jpg",
+    // "https://www.okchicas.com/wp-content/uploads/2019/03/Fondos-de-pantalla-para-celular-8.jpg"
   ];
 
   return (
@@ -116,16 +120,33 @@ const EscuchaMiMusica = () => {
           </button>
 
           {/* Título y botón para la ruta en el centro derecho */}
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 mr-8 mt-16">
-            <a
-              href={images[currentIndex].ruta}
-              className="flex items-center bg-fondoServicios text-white px-10 py-2 font-Montserrat rounded-lg text-2xl hover:bg-gray-600"
-              target={images[currentIndex].ruta && images[currentIndex].ruta.startsWith('http') ? "_blank" : "_self"}
-              rel="noopener noreferrer"
-            >
-              {images[currentIndex].title} <FaPlayCircle className="ml-2 text-lg" />
-            </a>
-          </div>
+          <div
+  className={`absolute ${
+    isMobile
+      ? "bottom-8 left-1/2 transform -translate-x-1/2 w-11/12"
+      : "right-0 top-1/2 transform -translate-y-1/2 mr-8 mt-16"
+  }`}
+>
+  <a
+    href={images[currentIndex].ruta}
+    className={`flex items-center justify-center bg-fondoServicios text-white px-6 py-2 font-Montserrat rounded-lg ${
+      isMobile ? "text-base h-12" : "text-2xl"
+    } hover:bg-gray-600`}
+    target={
+      images[currentIndex].ruta && images[currentIndex].ruta.startsWith("http")
+        ? "_blank"
+        : "_self"
+    }
+    rel="noopener noreferrer"
+  >
+    <span className={`${isMobile ? "truncate" : ""}`}>
+      {images[currentIndex].title}
+    </span>
+    <FaPlayCircle className={`ml-2 ${isMobile ? "text-lg" : "text-xl"}`} />
+  </a>
+</div>
+
+
 
           {/* Indicadores de imágenes */}
           <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">

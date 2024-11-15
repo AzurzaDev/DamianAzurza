@@ -83,7 +83,7 @@ const Shows = () => {
                     <img
                       src={show.images[0]}
                       alt={show.title}
-                      className="w-full h-48 object-cover rounded-lg"
+                      className="w-full h-48 object-cover rounded-lg sm: justify-center"
                     />
                   </div>
                   <div className="p-4">
