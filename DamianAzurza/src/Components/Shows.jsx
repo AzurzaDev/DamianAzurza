@@ -45,7 +45,7 @@ const Shows = () => {
 
   // Filtrar y ordenar los shows por fecha
   const upcomingShows = shows
-    .filter((show) => new Date(show.date) > new Date()) // Solo shows futuros
+    .filter((show) => new Date(show.date) ) 
     .sort((a, b) => new Date(a.date) - new Date(b.date)); // Ordenar por fecha ascendente
 
   if (loading) {
