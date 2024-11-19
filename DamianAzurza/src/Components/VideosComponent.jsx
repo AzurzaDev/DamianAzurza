@@ -17,14 +17,14 @@ const VideosComponent = () => {
       title: 'Video 2',
       image: dos,
       facebook: 'https://www.facebook.com/damianazurzamusician',
-      instagram: 'https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==',
+      instagram: 'https://www.instagram.com/thebeatrosario/',
       youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
     {
       title: 'Video 3',
       image: tres,
       facebook: 'https://www.facebook.com/damianazurzamusician',
-      instagram: 'https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==',
+      instagram: 'https://www.instagram.com/twomatchduet/',
       youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
   ];
