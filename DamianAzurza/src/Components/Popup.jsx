@@ -8,6 +8,9 @@ const formatDate = (dateString) => {
 };
 
 const Popup = ({ show, onClose }) => {
+    const handleReserveClick = () => {
+        window.open(show.src, '_blank', 'noopener,noreferrer');
+    };
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-white bg-opacity-90">
             <div className="bg-white shadow-lg p-4 md:p-16 relative w-11/12 md:w-3/4 lg:w-1/2 flex flex-col md:flex-row overflow-hidden">
@@ -38,9 +41,12 @@ const Popup = ({ show, onClose }) => {
                     <p className="text-gray-600 font-Montserrat mt-2">{show.city}</p>
                     {/* Botón de reserva */}
                     <div className="flex justify-start text-center mt-4">
-                        <a href={show.src} className="px-4 py-2 font-Montserrat bg-boton text-white  rounded hover:bg-gray-600 w-1/2">
+                    <button
+                            onClick={handleReserveClick}
+                            className="px-4 py-2 font-Montserrat bg-boton text-white rounded hover:bg-gray-600 w-1/2"
+                        >
                             Reservar
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>
