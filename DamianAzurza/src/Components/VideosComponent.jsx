@@ -23,7 +23,7 @@ const VideosComponent = () => {
     {
       title: 'Video 3',
       image: tres,
-      facebook: 'https://www.facebook.com/damianazurzamusician',
+      facebook: 'https://www.facebook.com/twomatch.duet',
       instagram: 'https://www.instagram.com/twomatchduet/',
       youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
