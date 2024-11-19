@@ -3,7 +3,7 @@ import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const formatDate = (dateString) => {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const date = new Date(dateString);
+    const date = new Date(`${dateString}T00:00:00`);
     return new Intl.DateTimeFormat('es-ES', options).format(date);
 };
 

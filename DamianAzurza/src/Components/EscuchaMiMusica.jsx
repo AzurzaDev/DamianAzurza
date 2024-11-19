@@ -123,8 +123,8 @@ const EscuchaMiMusica = () => {
           <div
   className={`absolute ${
     isMobile
-      ? "bottom-8 left-1/2 transform -translate-x-1/2 w-11/12"
-      : "right-0 top-1/2 transform -translate-y-1/2 mr-48 mt-16"
+      ? "bottom-8 left-1/2 transform -translate-x-1/2 w-11/12 uppercase"
+      : "right-0 top-1/2 transform -translate-y-1/2 mr-48 mt-16 uppercase"
   }`}
 >
   <a

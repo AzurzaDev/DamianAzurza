@@ -10,7 +10,7 @@ const VideoGallery = () => {
   const [filteredVideos, setFilteredVideos] = useState([]);
   const [selectedArtist, setSelectedArtist] = useState('');
   const [isMenuOpen, setIsMenuOpen] = useState(true);
-  const [artists, setArtists] = useState([]); // Lista de artistas según la categoría
+  const [artists, setArtists] = useState([]);
 
   // Obtener el parámetro de categoría desde la URL
   const location = useLocation();
@@ -18,13 +18,11 @@ const VideoGallery = () => {
   const searchParams = new URLSearchParams(location.search);
   const urlCategory = (searchParams.get('category') || '').replace(/\n/g, ' ');
 
-
   useEffect(() => {
     // Obtener videos desde el backend
     axios.get('/videos')
       .then((response) => {
         setVideos(response.data);
-
         // Filtrar videos y artistas al cargar la página
         filterVideosAndArtists(response.data, urlCategory);
       })
@@ -34,23 +32,24 @@ const VideoGallery = () => {
   const filterVideosAndArtists = (videosData, category) => {
     // Filtrar videos según la categoría de la URL
     let filtered = videosData;
-    if (category && category !== 'Todos') {
+    if (category) {
       filtered = videosData.filter((video) => video.category === category);
     }
     setFilteredVideos(filtered);
 
     // Obtener una lista única de artistas que coinciden con la categoría actual
     const filteredArtists = [...new Set(filtered.map((video) => video.artista))];
-    setArtists(filteredArtists); // Actualizar solo con artistas de la categoría
+    setArtists(filteredArtists);
   };
 
   useEffect(() => {
-    // Filtrar los videos cuando se selecciona un artista
+    // Filtrar los videos cuando se selecciona un artista o "Todos"
     let filtered = videos;
     if (selectedArtist) {
       filtered = filtered.filter((video) => video.artista === selectedArtist);
     }
-    if (urlCategory && urlCategory !== 'Todos') {
+    // Siempre filtrar por la categoría actual
+    if (urlCategory) {
       filtered = filtered.filter((video) => video.category === urlCategory);
     }
     setFilteredVideos(filtered);
@@ -73,7 +72,8 @@ const VideoGallery = () => {
   const handleCategorySelection = (category) => {
     setSelectedArtist('');
     if (category === 'Todos') {
-      navigate('/videos'); // Limpiar la URL
+      // Mantén la categoría actual en la URL
+      navigate(`/videos?category=${encodeURIComponent(urlCategory)}`);
     } else {
       navigate(`/videos?category=${encodeURIComponent(category)}`);
     }
@@ -85,7 +85,7 @@ const VideoGallery = () => {
       {isMenuOpen && (
         <div className="w-1/4 bg-gray-200 p-4 flex flex-col">
           <button onClick={toggleMenu} className="self-end mb-4 font-Montserrat text-boton">X</button>
-          <img src={logo} alt="Logo"  className="h-12 w-12 object-cover mb-4 block md:hidden"  />
+          <img src={logo} alt="Logo" className="h-12 w-12 object-cover mb-4 block md:hidden" />
           <Link to="/" className="text-2xl font-semibold font-Montserrat text-boton mb-4">Inicio</Link>
           
           <ul className="mb-4 space-y-2">
