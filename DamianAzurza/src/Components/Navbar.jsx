@@ -50,13 +50,13 @@ const Navbar = () => {
         {/* Redes Sociales y Botón Ingresar/PANEL */}
         <div className="hidden md:flex items-center space-x-6">
           <div className="flex space-x-4">
-            <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==" className="text-gray-600 hover:text-gray-800">
+            <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw=="  target="_blank" className="text-gray-600 hover:text-gray-800">
               <PiInstagramLogoFill size={24} />
             </a>
-            <a href="https://www.facebook.com/damianazurzamusician" className="text-gray-600 hover:text-gray-800">
+            <a href="https://www.facebook.com/damianazurzamusician" target="_blank" className="text-gray-600 hover:text-gray-800">
               <FaFacebookSquare size={24} />
             </a>
-            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" className="text-gray-600 hover:text-gray-800">
+            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" target="_blank" className="text-gray-600 hover:text-gray-800">
               <FaYoutube size={24} />
             </a>
           </div>

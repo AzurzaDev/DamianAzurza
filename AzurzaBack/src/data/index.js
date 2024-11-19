@@ -16,12 +16,14 @@ const {
 //   {
 //     logging: false, // set to console.log to see the raw SQL queries
 //     native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+//     timezone: '-03:00',
 //   }
 // );
 //-------------------------------------CONFIGURACION PARA EL DEPLOY---------------------------------------------------------------------
 const sequelize = new Sequelize(DB_DEPLOY , {
       logging: false, // set to console.log to see the raw SQL queries
       native: false, // lets Sequelize know we can use pg-native for ~30% more speed
+      timezone: '-03:00',
     }
   );
 

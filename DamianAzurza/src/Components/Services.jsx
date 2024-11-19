@@ -33,21 +33,21 @@ const Services = () => {
       title: "Producción Musical",
       description: "Tu proyecto artístico, solista o de banda puede hacerse realidad. Acercamos tu idea y juntos la potenciamos.",
       icon: <IoStatsChartSharp className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Tu proyecto artístico, solista o de banda puede hacerse realidad. Acercamos tu idea y juntos la potenciamos.",
+      activeDescription: "Tu proyecto artístico, solista o de banda puede hacerse realidad. ¡Contactame! escuchamos tu idea y juntos la potenciamos.",
       color: "bg-fondoServicios",
     },
     {
       title: "Solista",
       description: "Conocé mis diversos shows de covers y temas propios al mejor estilo hombre orquesta.",
       icon: <FaMicrophone className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Conocé mis diversos shows de covers y temas propios al mejor estilo hombre orquesta.",
+      activeDescription: "Al mejor estilo Hombre Orquesta interpreto diversos shows de Rock & Pop Nacional e Internacional cantando en vivo, tocando la guitarra, pandereta en pie izquierdo y realizando beatbox para así sumergirte en un increíble viaje sonoro .",
       color: "bg-fondoServicios",
     },
     {
       title: "Duetos",
-      description: "Conocé mis diversos shows de cover junto a diversos artistas.",
+      description: "Junto a talentosos artistas realizo shows de Rock & Pop Nacional e Internacional.",
       icon: <PiMicrophoneStageFill className="text-9xl text-iconos mb-4" />,
-      activeDescription: "Conocé mis diversos shows de cover junto a diversos artistas.",
+      activeDescription:  "Junto a talentosos artistas realizo shows de Rock & Pop Nacional e Internacional.",
       color: "bg-fondoServicios",
     },
   ];
@@ -123,7 +123,7 @@ const Services = () => {
                 }}
               >
                 <h3 className="text-xl font-semibold">{card.title}</h3>
-                <p className="text-sm mt-2">
+                <p className="text-xs mt-2">
                   {activeCard === index ? card.activeDescription : ""}
                 </p>
                 {card.icon}

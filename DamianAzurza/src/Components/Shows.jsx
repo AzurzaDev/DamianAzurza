@@ -17,9 +17,10 @@ const formatDate = (dateString) => {
     weekday: "long",
     day: "numeric",
     month: "long",
-    timeZone: "America/Argentina/Buenos_Aires"
   };
-  const date = new Date(dateString);
+
+  // Asegúrate de tratar la fecha como local sin ajustarla
+  const date = new Date(`${dateString}T00:00:00`);
   return new Intl.DateTimeFormat("es-ES", options).format(date);
 };
 

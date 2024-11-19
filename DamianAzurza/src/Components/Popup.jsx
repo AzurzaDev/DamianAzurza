@@ -3,11 +3,14 @@ import { FaFacebook, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 const formatDate = (dateString) => {
     const options = { weekday: 'long', day: 'numeric', month: 'long' };
-    const date = new Date(dateString);
+    const date = new Date(`${dateString}T00:00:00`);
     return new Intl.DateTimeFormat('es-ES', options).format(date);
 };
 
 const Popup = ({ show, onClose }) => {
+    const handleReserveClick = () => {
+        window.open(show.src, '_blank', 'noopener,noreferrer');
+    };
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50 bg-white bg-opacity-90">
             <div className="bg-white shadow-lg p-4 md:p-16 relative w-11/12 md:w-3/4 lg:w-1/2 flex flex-col md:flex-row overflow-hidden">
@@ -22,7 +25,7 @@ const Popup = ({ show, onClose }) => {
                         <a href="https://www.facebook.com/damianazurzamusician" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="text-boton h-6 w-6" />
                         </a>
-                        <a href="https://www.instagram.com/damianazurza" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw=="  target="_blank" rel="noopener noreferrer">
                             <FaInstagram className="text-boton h-6 w-6" />
                         </a>
                         <a href="https://www.youtube.com/user/damianazurza" target="_blank" rel="noopener noreferrer">
@@ -38,9 +41,12 @@ const Popup = ({ show, onClose }) => {
                     <p className="text-gray-600 font-Montserrat mt-2">{show.city}</p>
                     {/* Botón de reserva */}
                     <div className="flex justify-start text-center mt-4">
-                        <a href={show.src} className="px-4 py-2 font-Montserrat bg-boton text-white  rounded hover:bg-gray-600 w-1/2">
+                    <button
+                            onClick={handleReserveClick}
+                            className="px-4 py-2 font-Montserrat bg-boton text-white rounded hover:bg-gray-600 w-1/2"
+                        >
                             Reservar
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

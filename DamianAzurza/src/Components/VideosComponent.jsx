@@ -9,28 +9,28 @@ const VideosComponent = () => {
     {
       title: 'Videos',
       image: uno,
-      facebook: '#',
-      instagram: '#',
-      youtube: '#'
+      facebook: 'https://www.facebook.com/damianazurzamusician',
+      instagram: 'https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==',
+      youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
     {
       title: 'Video 2',
       image: dos,
-      facebook: '#',
-      instagram: '#',
-      youtube: '#'
+      facebook: 'https://www.facebook.com/damianazurzamusician',
+      instagram: 'https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==',
+      youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
     {
       title: 'Video 3',
       image: tres,
-      facebook: '#',
-      instagram: '#',
-      youtube: '#'
+      facebook: 'https://www.facebook.com/damianazurzamusician',
+      instagram: 'https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==',
+      youtube: 'https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d'
     },
   ];
 
   return (
-    <div className="w-full mx-auto bg-black py-4">
+    <div id="videos" className="w-full mx-auto bg-black py-4">
       <h3 className="text-white text-3xl md:text-4xl text-center font-semibold font-Montserrat">
         {videoCards[0].title}
       </h3>

@@ -94,26 +94,28 @@ const Contact = () => {
           damianazurza@gmail.com
         </p>
         <p className="text-fondoServicios font-Montserrat mb-8">
-          3415898335
+          3413719416
         </p>
 
         {/* Input de suscripción independiente */}
-        <div className="flex items-center space-x-2 justify-center md:justify-start">
-          <input
-            type="email"
-            name="suscriptionEmail"
-            placeholder="Suscribirte y te cuento mis novedades"
-            value={suscriptionEmail}
-            onChange={handleSuscriptionChange}
-            className="w-64 px-4 py-2 border bg-fondoMas font-Montserrat border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
-          />
-          <button
-            onClick={handleSuscriptionSubmit}
-            className="px-4 py-2 bg-fondoServicios font-Montserrat text-white rounded-lg shadow-lg hover:bg-gray-900 flex items-center"
-          >
-            Enviar <FiSend className="ml-2" />
-          </button>
-        </div>
+        <div className="flex flex-col items-center space-y-2 md:items-start">
+  <label className="text-fondoServicios font-semibold font-Montserrat">Subscribite y te cuento mis novedades</label>
+  <input
+    type="email"
+    name="suscriptionEmail"
+    placeholder="Email"
+    value={suscriptionEmail}
+    onChange={handleSuscriptionChange}
+    className="w-64 px-4 py-2 border bg-fondoMas font-Montserrat border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-gray-400"
+  />
+  <button
+    onClick={handleSuscriptionSubmit}
+    className="px-4 py-2 bg-fondoServicios font-Montserrat text-white rounded-lg shadow-lg hover:bg-gray-900 flex items-center"
+  >
+    Enviar <FiSend className="ml-2" />
+  </button>
+</div>
+
       </div>
 
       {/* Derecha - Formulario de contacto */}
