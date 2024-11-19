@@ -62,13 +62,13 @@ const PhotosGallery = () => {
           </Link>
           <h1 className="text-center font-Montserrat font-semibold text-white text-2xl md:text-5xl">Fotos</h1>
           <div className="flex space-x-2 md:space-x-4 lg:justify-end ">
-            <a href="https://www.facebook.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+            <a href="https://www.facebook.com/damianazurzamusician" target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
               <FaFacebookF size={20} />
             </a>
-            <a href="https://www.instagram.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+            <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw=="  target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
               <FaInstagram size={20} />
             </a>
-            <a href="https://youtube.com/..." target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
+            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" target="_blank" rel="noreferrer" className="text-white border-2 rounded-full p-2 md:p-4">
               <FaYoutube size={20} />
             </a>
           </div>

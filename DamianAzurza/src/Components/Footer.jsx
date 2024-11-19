@@ -13,14 +13,13 @@ const Footer = () => {
           Seguime en las redes
         </p>
         <div className="flex space-x-4">
-        <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw==" className="text-gray-600 hover:text-gray-800">
+        <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw=="  target="_blank" className="text-gray-600 hover:text-gray-800">
               <PiInstagramLogoFill size={24} />
             </a>
-            <a href="https://www.youtube.com/redirect?event=channel_header&redir_token=QUFFLUhqblVVcnZjQW9HcnRsZ1pfZ1dsUnc2NTdwUlhLQXxBQ3Jtc0trbVdHQmQ0c2JPdzBGdkt4bi13UFZhOFNBbDNPUHgtVUhtVDlSa0RnbTlKUi1tYW52WXVwMmVtYTVUWXZzTFQzbFFFdGE4M1BHX3ZuV2l5QVZJV1BfejBMeWc0anAyam9xZ3VWOFJHN0pWTVMzNDBiSQ&q=https%3A%2F%2Fwww.facebook.com%2Fdamianazurzamusician"className="text-gray-600 hover:text-gray-800" >
+            <a href="https://www.facebook.com/damianazurzamusician" target="_blank" className="text-gray-600 hover:text-gray-800">
               <FaFacebookSquare size={24} />
             </a>
-            
-            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" className="text-gray-600 hover:text-gray-800">
+            <a href="https://youtube.com/@damianazurza?si=vZdWXMG2EQJOFG2d" target="_blank" className="text-gray-600 hover:text-gray-800">
               <FaYoutube size={24} />
             </a>
         </div>

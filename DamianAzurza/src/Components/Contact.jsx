@@ -99,7 +99,7 @@ const Contact = () => {
 
         {/* Input de suscripción independiente */}
         <div className="flex flex-col items-center space-y-2 md:items-start">
-  <label className="text-fondoServicios font-semibold font-Montserrat">Suscribirte y te cuento mis novedades</label>
+  <label className="text-fondoServicios font-semibold font-Montserrat">Subscribite y te cuento mis novedades</label>
   <input
     type="email"
     name="suscriptionEmail"

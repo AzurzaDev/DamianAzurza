@@ -25,7 +25,7 @@ const Popup = ({ show, onClose }) => {
                         <a href="https://www.facebook.com/damianazurzamusician" target="_blank" rel="noopener noreferrer">
                             <FaFacebook className="text-boton h-6 w-6" />
                         </a>
-                        <a href="https://www.instagram.com/damianazurza" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/damian_azurza?igsh=MWtlazR0bGN6M3Zzaw=="  target="_blank" rel="noopener noreferrer">
                             <FaInstagram className="text-boton h-6 w-6" />
                         </a>
                         <a href="https://www.youtube.com/user/damianazurza" target="_blank" rel="noopener noreferrer">
