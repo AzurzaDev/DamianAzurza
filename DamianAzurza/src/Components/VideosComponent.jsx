@@ -30,7 +30,7 @@ const VideosComponent = () => {
   ];
 
   return (
-    <div className="w-full mx-auto bg-black py-4">
+    <div id="videos" className="w-full mx-auto bg-black py-4">
       <h3 className="text-white text-3xl md:text-4xl text-center font-semibold font-Montserrat">
         {videoCards[0].title}
       </h3>

@@ -57,6 +57,7 @@ const SeccionAnimada = () => {
         <div className="space-y-6">
           {/* Imagen 1 */}
           <div className="relative h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl px-6 shadow-lg">
+          <a href="#videos" className="block">
             <img
               src={imageIndex1 === 0 ? images[0].src1 : images[0].src2}
               alt={images[0].title}
@@ -65,6 +66,7 @@ const SeccionAnimada = () => {
             <span className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl lg:text-3xl font-semibold font-Montserrat z-1 bg-opacity-50 drop-shadow-lg">
               {images[0].title}
             </span>
+            </a>
           </div>
 
           {/* Imagen 3 */}
@@ -86,6 +88,7 @@ const SeccionAnimada = () => {
         <div className="space-y-6 mt-12 md:mt-20">
           {/* Imagen 2 */}
           <div className="relative h-[300px] md:h-[500px] lg:h-[600px] overflow-hidden rounded-3xl px-6 shadow-lg">
+          <a href="#videos" className="block">
             <img
               src={imageIndex2 === 0 ? images[1].src1 : images[1].src2}
               alt={images[1].title}
@@ -94,6 +97,7 @@ const SeccionAnimada = () => {
             <span className="absolute inset-0 flex items-center justify-center text-white text-lg md:text-2xl lg:text-3xl font-semibold font-Montserrat z-1 bg-opacity-50 drop-shadow-lg">
               {images[1].title}
             </span>
+            </a>
           </div>
 
           {/* Imagen 4 */}
