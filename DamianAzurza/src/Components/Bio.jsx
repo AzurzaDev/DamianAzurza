@@ -1,6 +1,6 @@
 import paraBio from '../assets/imgBio.png';
 import { FaDownload } from 'react-icons/fa'; // Importar el icono de descarga
-import cvPDF from '../assets/CV.pdf'; // Importa tu archivo PDF
+import cvPDF from '../assets/CV_Damian.pdf'; // Importa tu archivo PDF
 
 const Bio = () => {
   return (
@@ -21,20 +21,18 @@ const Bio = () => {
             Ésta es mi Historia
           </h2>
           <p className="text-fondoServicios font-Montserrat text-lg mb-4 text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. In vulputate
-            neque non libero feugiat, sed posuere sem consequat. Proin efficitur
-            dolor id lacus laoreet, eget lacinia ligula lacinia.
+          Inicié mis estudios musicales a los 12 años de edad, de la mano de la música de guitarra clásica. Muy pronto di mis primeras audiciones y a los 15 años  formé mi primera banda de covers donde me desempeñé como cantante y guitarrista. Allí mismo di mis primeros pasos escribiendo canciones y componiendo música.
           </p>
           <p className="text-fondoServicios font-Montserrat text-lg mb-8 text-left">
-            Mauris a sapien at libero gravida consequat. Nullam ornare diam et
-            justo viverra, ut feugiat nunc venenatis.
+          A los 19 años ingresé a la Universidad  Nacional de Música de Rosario como estudiante en las carreras de Guitarra y Canto. A los 26 años egresé con los títulos de Licenciado y Profesor. En el camino y hasta hoy: viajé, grabé, crecí, compartí con diversos artistas y toqué en los más variados escenarios.
+
           </p>
         </div>
         
         {/* Botón de descarga */}
         <a
           href={cvPDF} // Referencia al archivo PDF
-          download="Mi-CV.pdf" // Nombre del archivo cuando se descargue
+          download="CV_Damian_Azurza-2025.pdf" // Nombre del archivo cuando se descargue
           className="absolute my-4  bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
         >
           <FaDownload className="mr-2" /> Descargar CV

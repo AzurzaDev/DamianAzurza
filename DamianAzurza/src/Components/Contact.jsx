@@ -79,7 +79,7 @@ const Contact = () => {
       className="relative flex flex-col md:flex-row items-center justify-between bg-white p-8 md: m-8"
       style={{ backgroundImage: `url(${paraContacto})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}
     >
-      <div className="absolute inset-0 bg-white/70"></div>
+      <div className="absolute inset-0 bg-white/90"></div>
 
       {/* Izquierda - Texto */}
       <div id='contacto' className="relative w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 p-8">

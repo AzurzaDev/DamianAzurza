@@ -3,8 +3,8 @@ import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-ico
 import { FaPlayCircle } from "react-icons/fa";
 import axios from 'axios'; 
 import image1 from '../assets/azurzaMovile1.jpeg';
-import image2 from '../assets/azurzaMovile2.png';
-import image3 from '../assets/azurzaMovile3.png'
+import image2 from '../assets/azurzaMovile2.jpeg';
+import image3 from '../assets/azurzaMovile3.jpeg'
 
 const EscuchaMiMusica = () => {
   const [images, setImages] = useState([]);
