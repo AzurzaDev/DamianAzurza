@@ -86,7 +86,7 @@ const Services = () => {
       <div className="mt-48 md:mt-56 sm:mt-2">
         <h2 className="text-3xl ms:text-6xl font-bold font-Montserrat text-center mb-12 text-fondoServicios z-1 relative">Servicios</h2>
         <p className="text-center text-lg md:text-2xl text-fondoServicios font-Montserrat  mb-12 z-1 relative">
-        Compromiso, profesionalismo, pasión y seriedad vas a encontrarte en cualquiera de mis servicios.
+        Compromiso, pasión y profesionalismo vas a encontrar en cualquiera de mis servicios.
         </p> 
 
         <div className="flex flex-col md:flex-row justify-center gap-8 z-1 relative">
