@@ -68,7 +68,7 @@ const Services = () => {
       interval = setInterval(() => {
         setActiveCard(index);
         index = (index + 1) % cards.length; // Ciclo entre las tarjetas
-      }, 2000); // Cambiar cada 3 segundos
+      }, 4000); // Cambiar cada 3 segundos
     }
 
     return () => clearInterval(interval); // Limpiar el intervalo al desmontar

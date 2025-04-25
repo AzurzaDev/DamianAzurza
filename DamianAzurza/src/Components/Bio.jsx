@@ -1,6 +1,6 @@
 import paraBio from '../assets/imgBio.png';
 import { FaDownload } from 'react-icons/fa'; // Importar el icono de descarga
-import cvPDF from '../assets/CV_Damian.pdf'; // Importa tu archivo PDF
+
 
 const Bio = () => {
   return (
@@ -31,7 +31,7 @@ const Bio = () => {
         
         {/* Botón de descarga */}
         <a
-          href={cvPDF} // Referencia al archivo PDF
+          href="/CV_Damian.pdf" // Referencia al archivo PDF
           download="CV_Damian_Azurza-2025.pdf" // Nombre del archivo cuando se descargue
           className="absolute my-4  bottom-4 right-4 bg-boton text-white px-4 py-2 rounded-lg flex items-center shadow-lg hover:bg-gray-600 transition-colors duration-300"
         >
